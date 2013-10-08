@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--<script type="text/javascript" src="js/underscore.js"></script>-->
+
+    <!--<script type='text/javascript' src='js/jquery-1.7.1.js'></script>-->
+    <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    <!--<link rel="stylesheet" href="css/bootstrap-responsive.css"/>-->
+    <link rel="stylesheet" href="css/index.css"/>
+    <title>Playa</title>
+
+
+
+</head>
+<body>
+
+<div id="container"></div>
+
+<!--Templates of pages ------------------------------------------------------->
+<script id="home-tpl" type="text/template">
+    <header><span class="themeColor1">the</span><span class="themeColor2">playa</span><span class="themeColor3">times</span></header>
+    <div class="scroll">
+        <ul class="mainMenu">
+            <a href="#ActivitiesView">
+                <li>
+                    <img src="img/soccerball.png" class="menuItemLogo" alt=""/>
+                    Activities & Events
+                </li>
+            </a>
+
+            <a href="#restaurants">
+                <li>
+                    <img src="img/forkandknife.png" class="menuItemLogo" alt=""/>
+                    Restaurants
+                </li>
+            </a>
+
+            <a href="#AccomodationsView">
+                <li>
+                    <img src="img/accommodationsLogo.png" class="menuItemLogo" alt=""/>
+                    Accomodations
+                </li>
+            </a>
+
+            <a href="#DiscoverView">
+                <li>
+                    <img src="img/binoculars.png" class="menuItemLogo" alt=""/>
+                    Discover
+                </li>
+            </a>
+
+            <a href="#AttractionsView">
+                <li>
+                    <img src="img/attractionsLogo.png" class="menuItemLogo" alt=""/>
+                    Attractions
+                </li>
+            </a>
+        </ul>
+    </div>
+</script>
+
+<script id="activities-tpl" type="text/template">
+    <header><div class="back"><img src="img/backButton.png" alt="Back"/></div>Activities</header>
+    <div id="content">
+        <div id="calendar"></div>
+        <ul id="views">
+            <li onclick="changeView('month')">Month</li>
+            <li onclick="changeView('basicWeek')">Week</li>
+            <li onclick="changeView('basicDay')">Day</li>
+        </ul>
+    </div>
+</script>
+
+<script id="discover-tpl" type="text/template">
+    <header><div class="back"><img src="img/backButton.png" alt="Back"/></div>Discover</header>
+    <div id="map-canvas"></div>
+</script>
+
+<script id="header-tpl" type="text/template">
+    <div class="back"><img src="img/backButton.png" alt="Back"/></div>
+</script>
+
+<!--// Restaurants and Bars page templates -------------------------------------------->
+<script id="restaurants-ul-tpl" type="text/template">
+    <ul class="restaurantList itemList"></ul>
+</script>
+
+<script id="restaurant-li-tpl" type="text/template">
+    <!--<li class="clearfix">-->
+        <a href="#RestaurantView/<%= id %>">
+            <div class="logo"><img src="img/<%= name %>.jpg" alt=""/></div>
+            <div class="itemInfo">
+                <div class="itemName"><%= name %></div>
+                <div class="infoPiece phone"><img src="img/phone.png" alt=""/><%= phone %></div>
+                <div class="infoPiece email"><img src="img/email.png" alt=""/><%= email %></div>
+                <div class="infoPiece website"><img src="img/web.png" alt=""/><%= website %></div>
+            </div>
+        </a>
+    <!--</li>-->
+</script>
+
+<script id="restaurant-page-tpl" type="text/template">
+    <header><div class="back"><img src="img/backButton.png" alt="Back"/></div></header>
+    <div class="itemView">
+            <div class="logo"><img src="img/<%= name %>.jpg" alt=""/></div>
+        <div class="itemInfo">
+            <div class="itemName"><%= name %></div>
+            <div class="infoPiece phone"><img src="img/phone.png" alt=""/><%= phone %></div>
+            <div class="infoPiece email"><img src="img/email.png" alt=""/><%= email %></div>
+            <div class="infoPiece website"><img src="img/web.png" alt=""/><%= website %></div>
+        </div>
+        <div class="infoPiece address"><img src="img/mapPin.png" alt=""/><div class="description"><%= address %></div></div>
+    </div>
+
+</script>
+
+<!--// Accommodations page templates -------------------------------------------->
+<script id="accomodations-tpl" type="text/template">
+    <header><div class="back"><img src="img/backButton.png" alt="Back"/></div>Accomodations</header>
+    <ul class="accomodationsList itemList"></ul>
+</script>
+
+<script id="accomodation-li-tpl" type="text/template">
+    <li class="clearfix"><a href="#AccomodationView/<%= id %>">
+        <div class="logo"><img src="img/<%= name %>.jpg" alt=""/></div>
+
+        <div class="itemInfo">
+            <div class="itemName"><%= name %></div>
+            <div class="infoPiece phone"><img src="img/phone.png" alt=""/><%= phone %></div>
+            <div class="infoPiece phone"><img src="img/phone.png" alt=""/><%= phone2 %></div>
+            <div class="infoPiece website"><img src="img/web.png" alt=""/><%= website %></div>
+        </div>
+    </a></li>
+
+</script>
+
+<script id="accomodation-page-tpl" type="text/template">
+    <header><div class="back"><img src="img/backButton.png" alt="Back"/></div><%= name %></header>
+    <%= address %>
+</script>
+
+<script id="attractions-tpl" type="text/template">
+    <header><div class="back"><img src="img/backButton.png" alt="Back"/></div>Attractions</header>
+    <ul class="attractionsList"></ul>
+</script>
+
+<script id="attraction-li-tpl" type="text/template">
+    <li><a href="#AttractionView/<%= id %>"><%= name %></br>Address:<%= address %></a></li>
+</script>
+
+<script id="attraction-page-tpl" type="text/template">
+    <header><div class="back"><img src="img/backButton.png" alt="Back"/></div><%= name %></header>
+    <%= address %>
+</script>
+
+
+<!--<script src="./lib/jquery-1.8.2.min.js"></script>-->
+<!--<script type='text/javascript' src='./fullcalendar/fullcalendar.js'></script>-->
+<!--<script type='text/javascript' src='./fullcalendar/gcal.js'></script>-->
+<!--<link rel='stylesheet' type='text/css' href='./fullcalendar/fullcalendar.css' />-->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="js/libraries/underscore-min.js"></script>
+<script type="text/javascript" src="js/libraries/backbone-min.js"></script>
+<script type="text/javascript" src="js/libraries/pageslider.js"></script>
+<script src="./js/app.js"></script>
+<script src="./js/router.js"></script>
+<script src="./js/models.js"></script>
+<script src="./js/views.js"></script> 11
+
+
+
+<script type='text/javascript'>
+    //<![CDATA[
+    $(function() { App.start(); })
+    //]]>
+</script>
+
+<script>
+//     this function calls google maps asynchronously when the script is dynamically added to the view
+    function initialize() {
+        var mapOptions = {
+            zoom: 8,
+            center: new google.maps.LatLng(-34.397, 150.644),
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+
+        var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+    }
+
+</script>
+
+
+
+</body>
+</html>
