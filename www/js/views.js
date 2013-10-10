@@ -9,85 +9,45 @@
  */
 
 
-App.HeaderView = Backbone.View.extend({
-    el: 'header',
-
-    template: _.template($('#header-tpl').html()),
-
+App.HeaderView = Backbone.Marionette.ItemView.extend({
+//    el: 'header',
+//    className: 'back',
+    template: '#header-tpl',
     events: {
         'click .back' : 'goBack'
     },
-
     goBack: function() {
         App.router.goBack();
-    },
-
-    render: function() {
-       $(this.el).html(this.template());
-       return this;
-   }
+    }
 });
 
-App.HomeView = Backbone.View.extend({
-    template:_.template($('#home-tpl').html()),
-
-    initialize: function() {
-        this.render();
-    },
-
-    render: function() {
-        $(this.el).html(this.template());
-        return this;
-    }
+App.HomeView = Backbone.Marionette.ItemView.extend({
+    template: '#home-tpl'
 });
 
 
 // Restaurants --------------------------------------------------------
 
-App.RestaurantsView = Backbone.View.extend({
-    initialize: function() {
-        this.model.bind("reset", this.render, this);
-    },
+App.Layout = Backbone.Marionette.Layout.extend({
+    template: '#layout-tpl',
 
-    render: function() {
-        $(this.el).append(new App.HeaderView().render().el);
-        var listView = new App.RestaurantsListView({model : this.model}).render().el;
-        $(this.el).append(listView);
-
-        return this;
+    regions: {
+        header : 'header',
+        content : '#stuff'
     }
 });
 
-App.RestaurantsListView = Backbone.View.extend({
+App.RestaurantsListView = Backbone.Marionette.CollectionView.extend({
+    itemView : App.RestaurantListItemView,
     tagName: 'ul',
-//    template: _.template('#restaurants-tpl'),
-    className: 'restaurantList itemList',
-
-    initialize: function() {
-        this.model.bind("reset", this.render, this);
-    },
-
-    render: function() {
-//        $(this.el).append(this.template());
-        // for each restaurant in the model, create a list item and put it in the list.
-        _.each(this.model.models, function(restaurant) {
-            $(this.el).append(new App.RestaurantListItemView({model:restaurant}).render().el);
-        }, this)
-        return this;
-    }
+    className: 'restaurantList itemList'
 });
 
 
-App.RestaurantListItemView = Backbone.View.extend({
+App.RestaurantListItemView = Backbone.Marionette.ItemView.extend({
+    template: '#restaurant-li-tpl',
     tagName: 'li',
-    className: 'clearfix',
-    template: _.template($('#restaurant-li-tpl').html()),
-
-    render: function() {
-        $(this.el).html(this.template(this.model.toJSON()));
-        return this;
-    }
-
+    className: 'clearfix'
 });
 
 App.RestaurantItemView = Backbone.View.extend({
