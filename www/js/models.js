@@ -13,5 +13,16 @@ App.Restaurants = Backbone.Model.extend();
 App.RestaurantsCollection = Backbone.Collection.extend({
     model: App.Restaurants,
     url:"api/restaurants"
+//    url:"http://dev.karltietz.com/data/restaurantsData.json"
 });
+
+// Accommodations ------------------------------------------------------
+App.Accommodations = Backbone.Model.extend();
+
+App.AccommodationsCollection = Backbone.Collection.extend({
+    model: App.Accommodations,
+    url:"api/accommodations"
+});
+
+
 })();

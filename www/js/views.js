@@ -25,9 +25,6 @@ App.HomeView = Backbone.Marionette.ItemView.extend({
     template: '#home-tpl'
 });
 
-
-// Restaurants --------------------------------------------------------
-
 App.Layout = Backbone.Marionette.Layout.extend({
     template: '#layout-tpl',
 
@@ -37,12 +34,12 @@ App.Layout = Backbone.Marionette.Layout.extend({
     }
 });
 
+// Restaurants --------------------------------------------------------
 App.RestaurantsListView = Backbone.Marionette.CollectionView.extend({
     itemView : App.RestaurantListItemView,
     tagName: 'ul',
     className: 'restaurantList itemList'
 });
-
 
 App.RestaurantListItemView = Backbone.Marionette.ItemView.extend({
     template: '#restaurant-li-tpl',
@@ -50,22 +47,25 @@ App.RestaurantListItemView = Backbone.Marionette.ItemView.extend({
     className: 'clearfix'
 });
 
-App.RestaurantItemView = Backbone.View.extend({
-    // TODO: create its own model to get a single item
-    render: function() {
-        $(this.el).html(new HeaderView());
-        $(this.el).html(new RestaurantInfoView({model : this.model}));
-        return this;
-    }
+App.RestaurantInfoView = Backbone.Marionette.ItemView.extend({
+    template: '#restaurant-page-tpl'
 });
 
-App.RestaurantInfoView = Backbone.View.extend({
-    template: _.template($('#restaurant-page-tpl').html()),
+// Accommodations --------------------------------------------------------
+App.AccommodationsListView = Backbone.Marionette.CollectionView.extend({
+    itemView : App.AccommodationsListItemView,
+    tagName: 'ul',
+    className: 'accommodationsList itemList'
+});
 
-    render: function() {
-        $(this.el).append(this.template(this.model.toJSON()));
-        return this;
-    }
+App.AccommodationsListItemView = Backbone.Marionette.ItemView.extend({
+    template: '#accommodation-li-tpl',
+    tagName: 'li',
+    className: 'clearfix'
+});
+
+App.AccommodationInfoView = Backbone.Marionette.ItemView.extend({
+    template: '#accommodation-page-tpl'
 });
 
 

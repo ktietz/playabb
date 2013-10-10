@@ -13,7 +13,9 @@ App.AppRouter = Backbone.Marionette.AppRouter.extend({
     routes: {
         '' : 'home',
         'restaurants' : 'restaurants',
-        'restaurants/:id' : 'restaurant'
+        'restaurants/:id' : 'restaurant',
+        'accommodations' : 'accommodations',
+        'accommodations/:id' : 'accommodation'
     },
 
     goBack: function() {
@@ -41,8 +43,8 @@ App.AppRouter = Backbone.Marionette.AppRouter.extend({
         self.restaurantsList = new App.RestaurantsCollection();
         self.restaurantsList.fetch({
             success: function() {
-                self.restaurantsView = new App.Layout({ collection : self.restaurantsList });
-
+//                self.restaurantsView = new App.Layout({ collection : self.restaurantsList });
+                self.restaurantsView = new App.Layout();
                 self.restaurantsView.render();
 
                 self.restaurantsView.header.show(new App.HeaderView());
@@ -52,20 +54,46 @@ App.AppRouter = Backbone.Marionette.AppRouter.extend({
                 }));
 
                 self.slider.slidePage(self.restaurantsView.$el);
-
-//                self.restaurantsView = new App.RestaurantsView({
-//                    collection : self.restaurantsList
-////                    itemView : App.RestaurantListItemView
-//                });
-//
-//                self.slider.slidePage(self.restaurantsView.render().$el);
-////                App.mApp.content.show(self.restaurantsView);
             }
         });
     },
 
-    restaurant: function() {
+    restaurant: function(id) {
+        var self = this;
+//        self.restaurantsList = new App.RestaurantsCollection();
+//        self.restaurantsList.fetch({
+//            success: function() {
+                    self.restaurantItem = self.restaurantsList.get(id);
+                    self.restaurantView = new App.Layout();
+                    self.restaurantView.render();
 
+                    self.restaurantView.header.show(new App.HeaderView());
+                    self.restaurantView.content.show(new App.RestaurantInfoView({
+                        model : self.restaurantItem
+                    }));
+
+                    self.slider.slidePage(self.restaurantView.$el);
+//                });
+//            }
+    },
+
+    accommodations: function(){
+        var self = this;
+        self.accommodationsList= new App.AccommodationsCollection();
+        self.accommodationsList.fetch({
+            success: function() {
+                self.accommodationsView = new App.Layout();
+                self.accommodationsView.render();
+
+                self.accommodationsView.header.show(new App.HeaderView());
+                self.accommodationsView.content.show(new App.RestaurantsListView({
+                    collection : self.accommodationsList,
+                    itemView : App.RestaurantListItemView
+                }));
+
+                self.slider.slidePage(self.accommodationsView.$el);
+            }
+        });
     }
 });
 
