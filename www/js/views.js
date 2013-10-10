@@ -14,13 +14,20 @@ App.HeaderView = Backbone.View.extend({
 
     template: _.template($('#header-tpl').html()),
 
+    events: {
+        'click .back' : 'goBack'
+    },
+
+    goBack: function() {
+        App.router.goBack();
+    },
+
     render: function() {
        $(this.el).html(this.template());
        return this;
    }
 });
 
-// Restaurants --------------------------------------------------------
 App.HomeView = Backbone.View.extend({
     template:_.template($('#home-tpl').html()),
 
@@ -33,6 +40,9 @@ App.HomeView = Backbone.View.extend({
         return this;
     }
 });
+
+
+// Restaurants --------------------------------------------------------
 
 App.RestaurantsView = Backbone.View.extend({
     initialize: function() {
@@ -78,6 +88,24 @@ App.RestaurantListItemView = Backbone.View.extend({
         return this;
     }
 
+});
+
+App.RestaurantItemView = Backbone.View.extend({
+    // TODO: create its own model to get a single item
+    render: function() {
+        $(this.el).html(new HeaderView());
+        $(this.el).html(new RestaurantInfoView({model : this.model}));
+        return this;
+    }
+});
+
+App.RestaurantInfoView = Backbone.View.extend({
+    template: _.template($('#restaurant-page-tpl').html()),
+
+    render: function() {
+        $(this.el).append(this.template(this.model.toJSON()));
+        return this;
+    }
 });
 
 

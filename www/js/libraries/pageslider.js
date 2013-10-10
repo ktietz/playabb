@@ -57,5 +57,9 @@ function PageSlider(container) {
         currentPage = page;
     };
 
+    this.back = function() {
+        this.slidePageFrom(stateHistory[stateHistory.length - 1], 'page-left');
+    };
+
 
 };

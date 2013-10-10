@@ -12,7 +12,12 @@ App.AppRouter = Backbone.Router.extend({
 
     routes: {
         '' : 'home',
-        'restaurants' : 'restaurants'
+        'restaurants' : 'restaurants',
+        'restaurants/:id' : 'restaurant'
+    },
+
+    goBack: function() {
+        window.history.back();
     },
 
     initialize: function() {
@@ -36,6 +41,10 @@ App.AppRouter = Backbone.Router.extend({
                 self.slider.slidePage(self.restaurantsView.render().$el);
             }
         });
+    },
+
+    restaurant: function() {
+
     }
 });
 
