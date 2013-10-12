@@ -12,8 +12,8 @@ App.Restaurants = Backbone.Model.extend();
 
 App.RestaurantsCollection = Backbone.Collection.extend({
     model: App.Restaurants,
-//    url:"api/restaurants"
-    url:"http://dev.karltietz.com/data/restaurantsData.json"
+//    url:"api/restaurants" // Use this for testing.
+    url:"http://theplayatimes.com/welcome/rest/api/listing/publish/true.json" // Use this for live.
 });
 
 // Accommodations ------------------------------------------------------
@@ -22,6 +22,15 @@ App.Accommodations = Backbone.Model.extend();
 App.AccommodationsCollection = Backbone.Collection.extend({
     model: App.Accommodations,
     url:"api/accommodations"
+});
+
+
+// Attractions ------------------------------------------------------
+App.Attractions = Backbone.Model.extend();
+
+App.AttractionsCollection = Backbone.Collection.extend({
+    model: App.Attractions,
+    url:"api/attractions"
 });
 
 

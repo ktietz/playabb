@@ -69,7 +69,22 @@ App.AccommodationInfoView = Backbone.Marionette.ItemView.extend({
 });
 
 
+// Attractions --------------------------------------------------------
+App.AttractionsListView = Backbone.Marionette.CollectionView.extend({
+    itemView : App.AttractionsListItemView,
+    tagName: 'ul',
+    className: 'attractionsList itemList'
+});
 
+App.AttractionsListItemView = Backbone.Marionette.ItemView.extend({
+    template: '#attraction-li-tpl',
+    tagName: 'li',
+    className: 'clearfix'
+});
+
+App.AttractionInfoView = Backbone.Marionette.ItemView.extend({
+    template: '#attraction-page-tpl'
+});
 
 
 })();

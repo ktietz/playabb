@@ -15,7 +15,9 @@ App.AppRouter = Backbone.Marionette.AppRouter.extend({
         'restaurants' : 'restaurants',
         'restaurants/:id' : 'restaurant',
         'accommodations' : 'accommodations',
-        'accommodations/:id' : 'accommodation'
+        'accommodations/:id' : 'accommodation',
+        'attractions' : 'attractions',
+        'attractions/:id' : 'attraction'
     },
 
     goBack: function() {
@@ -88,10 +90,29 @@ App.AppRouter = Backbone.Marionette.AppRouter.extend({
                 self.accommodationsView.header.show(new App.HeaderView());
                 self.accommodationsView.content.show(new App.RestaurantsListView({
                     collection : self.accommodationsList,
-                    itemView : App.RestaurantListItemView
+                    itemView : App.AccommodationsListItemView
                 }));
 
                 self.slider.slidePage(self.accommodationsView.$el);
+            }
+        });
+    },
+
+    attractions: function(){
+        var self = this;
+        self.attractionsList= new App.AttractionsCollection();
+        self.attractionsList.fetch({
+            success: function() {
+                self.attractionsView = new App.Layout();
+                self.attractionsView.render();
+
+                self.attractionsView.header.show(new App.HeaderView());
+                self.attractionsView.content.show(new App.RestaurantsListView({
+                    collection : self.attractionsList,
+                    itemView : App.AttractionsListItemView
+                }));
+
+                self.slider.slidePage(self.attractionsView.$el);
             }
         });
     }

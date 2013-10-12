@@ -92,7 +92,9 @@ body,
 }
 .scroll {
   overflow: auto;
-  top: 84px;
+  -webkit-overflow-scrolling: touch;
+  position: absolute;
+  top: 60px;
   bottom: 0px;
   left: 0px;
   right: 0px;
