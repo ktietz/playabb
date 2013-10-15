@@ -91,7 +91,7 @@ body,
   height: 100%;
 }
 .scroll {
-  overflow: auto;
+  overflow: scroll;
   -webkit-overflow-scrolling: touch;
   position: absolute;
   top: 60px;
@@ -234,11 +234,12 @@ ul li {
   padding: 0 0.5em 0 0;
 }
 .itemView .infoPiece {
-  display: inline-block;
+  display: inline-table;
   margin: 0 0 0.5em 1.1em;
 }
 .itemView .infoPiece .text {
   float: right;
+  word-wrap: break-word;
 }
 .itemView .infoPiece img {
   float: left;
@@ -247,7 +248,7 @@ ul li {
   visibility: hidden;
 }
 .itemView .logo {
-  float: left;
+  float: right;
   width: 30%;
   max-width: 15em;
   margin-right: 0.7em;

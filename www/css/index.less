@@ -129,7 +129,7 @@ html, body, #map-canvas {
 }
 
 .scroll() {
-  overflow: auto;
+  overflow: scroll;
   -webkit-overflow-scrolling: touch;
   position: absolute;
   top: 60px;
@@ -339,10 +339,11 @@ ul {
 .itemView{
   padding: 0 0.5em 0 0;
   .infoPiece {
-    display: inline-block;
+    display: inline-table;
     margin: 0 0 0.5em 1.1em;
     .text{
       float: right;
+      word-wrap: break-word;
     }
     img {
       float: left;
@@ -359,7 +360,7 @@ ul {
   }
 
   .logo{
-    float: left;
+    float: right;
     width: 30%;
     max-width: 15em;
     margin-right: 0.7em;
