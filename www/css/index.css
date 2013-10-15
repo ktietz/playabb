@@ -229,6 +229,9 @@ ul li {
   max-height: 1.3em;
   margin: 0 0.5em -0.1em 0;
 }
+.itemView {
+  padding: 0 0.5em 0 0;
+}
 .itemView .infoPiece {
   margin: 0 0 0.5em 1.1em;
 }
@@ -258,7 +261,7 @@ ul li {
   max-height: 1.3em;
   margin: 0 0.7em -0.1em 0;
 }
-.itemView .address .description {
+.itemView .address .text {
   float: right;
   width: 87%;
 }
@@ -267,6 +270,11 @@ ul li {
   max-width: 1.7em;
   max-height: 1.7em;
   margin: 0 0.7em 0 0;
+}
+.itemView .description {
+  display: inline-block;
+  position: relative;
+  padding-top: 1em;
 }
 #container {
   position: absolute;
