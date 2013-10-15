@@ -166,6 +166,14 @@ header .themeColor2 {
 header .themeColor3 {
   color: #143b54;
 }
+#wrapper {
+  display: block;
+  position: absolute;
+  top: 60px;
+  bottom: 0px;
+  width: 100%;
+  overflow: auto;
+}
 ul {
   margin: 0;
   padding: 0;

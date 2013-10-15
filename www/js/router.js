@@ -31,6 +31,15 @@ App.AppRouter = Backbone.Marionette.AppRouter.extend({
         App.layout = new App.Layout();
         App.layout.render();
 
+//        if (App.iscroll) {
+//            console.log('Refresh iScroll');
+//            App.iscroll.refresh();
+//        } else {
+//            App.iscroll = new iScroll($('#container'), {desktopCompatibility: true});
+////                    self.iscroll = new iScroll('stuff', {hScrollbar: false, vScrollbar: false });
+//            console.log('New iScroll');
+//        }
+
     },
 
     home: function() {
@@ -38,6 +47,10 @@ App.AppRouter = Backbone.Marionette.AppRouter.extend({
         self.homeView = new App.HomeView();
         this.slider.slidePage(self.homeView.render().$el);
 //        this.slider.slidePage(App.mApp.content.show(self.homeView.render().$el));
+
+//        setTimeout(function () {
+//            App.iscroll.refresh();
+//        }, 0);
     },
 
     restaurants: function(){
@@ -57,14 +70,18 @@ App.AppRouter = Backbone.Marionette.AppRouter.extend({
 
                 self.slider.slidePage(self.restaurantsView.$el);
 
-                if (self.iscroll) {
-                    console.log('Refresh iScroll');
-                    self.iscroll.refresh();
-                } else {
-                    self.iscroll = new iScroll('stuff');
-//                    self.iscroll = new iScroll('stuff', {hScrollbar: false, vScrollbar: false });
-                    console.log('New iScroll');
-                }
+//                if (self.iscroll) {
+//                    console.log('Refresh iScroll');
+//                    self.iscroll.refresh();
+//                } else {
+//                    self.iscroll = new iScroll('stuff', {desktopCompatibility: true});
+////                    self.iscroll = new iScroll('stuff', {hScrollbar: false, vScrollbar: false });
+//                    console.log('New iScroll');
+//                }
+
+//                setTimeout(function () {
+//                    App.iscroll.refresh();
+//                }, 0);
             }
         });
     },
