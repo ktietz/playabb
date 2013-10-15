@@ -250,13 +250,12 @@ ul li {
   float: left;
   width: 30%;
   max-width: 15em;
+  margin-right: 0.7em;
 }
 .itemView .logo img {
   width: 100%;
 }
 .itemView .itemInfo {
-  width: 70%;
-  float: left;
   font-size: 1em;
   vertical-align: middle;
 }
