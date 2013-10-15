@@ -128,7 +128,7 @@ html, body, #map-canvas {
   height: 100%;
 }
 
-.scroll {
+.scroll() {
   overflow: auto;
   -webkit-overflow-scrolling: touch;
   position: absolute;
@@ -276,6 +276,8 @@ ul {
 }
 
 .itemList {
+  .scroll();
+
   a {
     color: @textColor;
     text-decoration: none;
@@ -332,6 +334,7 @@ ul {
 }
 
 .itemView{
+  .scroll();
   padding: 0 0.5em 0 0;
   .infoPiece {
     margin: 0 0 0.5em 1.1em;
