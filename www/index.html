@@ -30,7 +30,11 @@
 </script>
 
 <script id="home-tpl" type="text/template">
-    <header><span class="themeColor1">the</span><span class="themeColor2">playa</span><span class="themeColor3">times</span></header>
+    <header>
+        <div class="title">
+            <span class="themeColor1">the</span><span class="themeColor2">playa</span><span class="themeColor3">times</span>
+        </div>
+    </header>
     <div class="scroll">
         <ul class="mainMenu">
             <a href="#ActivitiesView">
@@ -82,9 +86,10 @@
         <div class="logo"><img src="img/<%= name %>.jpg" alt=""/></div>
         <div class="itemInfo">
             <div class="itemName"><%= name %></div>
-            <div class="infoPiece phone"><img src="img/phone.png" alt=""/><%= telephone %></div>
-            <div class="infoPiece email"><img src="img/email.png" alt=""/><%= email %></div>
-            <div class="infoPiece website"><img src="img/web.png" alt=""/><%= website %></div>
+            <!--<div class="infoPiece phone"><img src="img/phone.png" alt=""/><%= telephone %></div>-->
+            <!--<div class="infoPiece email"><img src="img/email.png" alt=""/><%= email %></div>-->
+            <!--<div class="infoPiece website"><img src="img/web.png" alt=""/><%= website %></div>-->
+            <div class="infoPiece description"><%= description %></div>
         </div>
     </a>
     <!--</li>-->

@@ -130,7 +130,7 @@ html, body, #map-canvas {
 
 .scroll {
   overflow: auto;
-  -webkit-overflow-scrolling: touch;
+//  -webkit-overflow-scrolling: touch;
   position: absolute;
   top: 60px;
   bottom: 0px;
@@ -211,19 +211,25 @@ body {
 header{
   color: @headerColor;
   text-align: center;
-  padding: 0.3em 0 0.3em 0;
+//  padding: 0.3em 0 0.3em 0;
   font-size: 2em;
-  min-height: 1.3em;
+  min-height: 1.87em;
   background-color: @themeColor4;
+  .title{
+    padding-top: 0.3em;
+  }
   .back{
-    position: absolute;
-    left: 20px;
-    top: 14px;
+//    position: absolute;
+//    left: 20px;
+//    top: 14px;
+    float: left;
+    padding: 0.4em 1em 0.2em 0.5em;
     img{
       height: 1em;
     }
   }
   .themeColor1{
+    color: @themeColor1;
     color: @themeColor1;
   }
   .themeColor2{
@@ -301,6 +307,23 @@ ul {
       margin: 0 0 0.5em 0.7em;
     }
 
+    .description{
+      overflow: hidden;
+      text-overflow: ellipsis;
+//      word-wrap: nowrap;
+      max-height: 3.5em;
+    }
+//    .description:after {
+//      content: "";
+//      text-align: right;
+//      position: absolute;
+//      bottom: 0;
+//      right: 0;
+//      width: 70%;
+//      height: 1.2em;
+//      background: linear-gradient(to right, rgba(195, 206, 209, 0), rgba(195, 206, 209, 1) 50%);
+//    }
+
     img{
       max-width: 1.3em;
       max-height: 1.3em;
@@ -312,6 +335,10 @@ ul {
 .itemView{
   .infoPiece {
     margin: 0 0 0.5em 1.1em;
+  }
+
+  .hidden{ // info not available, so hide it
+    visibility: hidden;
   }
 
   .logo{

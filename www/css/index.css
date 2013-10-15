@@ -92,7 +92,6 @@ body,
 }
 .scroll {
   overflow: auto;
-  -webkit-overflow-scrolling: touch;
   position: absolute;
   top: 60px;
   bottom: 0px;
@@ -143,15 +142,16 @@ body {
 header {
   color: #c3ced1;
   text-align: center;
-  padding: 0.3em 0 0.3em 0;
   font-size: 2em;
-  min-height: 1.3em;
+  min-height: 1.87em;
   background-color: #006d8e;
 }
+header .title {
+  padding-top: 0.3em;
+}
 header .back {
-  position: absolute;
-  left: 20px;
-  top: 14px;
+  float: left;
+  padding: 0.4em 1em 0.2em 0.5em;
 }
 header .back img {
   height: 1em;
@@ -219,6 +219,11 @@ ul li {
 .itemList .itemInfo .infoPiece {
   margin: 0 0 0.5em 0.7em;
 }
+.itemList .itemInfo .description {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 3.5em;
+}
 .itemList .itemInfo img {
   max-width: 1.3em;
   max-height: 1.3em;
@@ -226,6 +231,9 @@ ul li {
 }
 .itemView .infoPiece {
   margin: 0 0 0.5em 1.1em;
+}
+.itemView .hidden {
+  visibility: hidden;
 }
 .itemView .logo {
   float: left;
