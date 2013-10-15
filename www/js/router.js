@@ -56,6 +56,15 @@ App.AppRouter = Backbone.Marionette.AppRouter.extend({
                 }));
 
                 self.slider.slidePage(self.restaurantsView.$el);
+
+                if (self.iscroll) {
+                    console.log('Refresh iScroll');
+                    self.iscroll.refresh();
+                } else {
+                            self.iscroll = new iScroll('stuff');
+//                    self.iscroll = new iScroll('stuff', {hScrollbar: false, vScrollbar: false });
+                    console.log('New iScroll');
+                }
             }
         });
     },
