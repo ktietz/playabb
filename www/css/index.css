@@ -90,6 +90,15 @@ body,
   padding: 0;
   height: 100%;
 }
+.scroll {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  position: absolute;
+  top: 60px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
 li > a.tappable-active {
   color: #fff;
   background-color: #4286f5;
@@ -185,15 +194,6 @@ ul li {
   height: 1em;
   margin-right: 0.7em;
 }
-.itemList {
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-  position: absolute;
-  top: 60px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-}
 .itemList a {
   color: #575757;
   text-decoration: none;
@@ -231,13 +231,6 @@ ul li {
   margin: 0 0.5em -0.1em 0;
 }
 .itemView {
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-  position: absolute;
-  top: 60px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
   padding: 0 0.5em 0 0;
 }
 .itemView .infoPiece {
