@@ -241,7 +241,14 @@ ul li {
   padding: 0 0.5em 0 0;
 }
 .itemView .infoPiece {
+  display: inline-block;
   margin: 0 0 0.5em 1.1em;
+}
+.itemView .infoPiece .text {
+  float: right;
+}
+.itemView .infoPiece img {
+  float: left;
 }
 .itemView .hidden {
   visibility: hidden;
@@ -251,11 +258,13 @@ ul li {
   width: 30%;
   max-width: 15em;
   margin-right: 0.7em;
+  margin-bottom: 0.7em;
 }
 .itemView .logo img {
   width: 100%;
 }
 .itemView .itemInfo {
+  width: 70%;
   font-size: 1em;
   vertical-align: middle;
 }

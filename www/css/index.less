@@ -337,11 +337,23 @@ ul {
   .scroll();
   padding: 0 0.5em 0 0;
   .infoPiece {
+    display: inline-block;
     margin: 0 0 0.5em 1.1em;
+    .text{
+      float: right;
+    }
+    img {
+      float: left;
+    }
   }
 
   .hidden{ // info not available, so hide it
     visibility: hidden;
+//    position: absolute;
+    img{
+//      position: absolute;
+//      width: 0px;
+    }
   }
 
   .logo{
@@ -349,13 +361,14 @@ ul {
     width: 30%;
     max-width: 15em;
     margin-right: 0.7em;
+    margin-bottom: 0.7em;
     img{
       width: 100%;
     }
   }
 
   .itemInfo {
-//    width: 70%;
+    width: 70%;
 //    float: left;
     font-size: @itemInfo;
     vertical-align: middle;
