@@ -12,8 +12,8 @@ App.Restaurants = Backbone.Model.extend();
 
 App.RestaurantsCollection = Backbone.Collection.extend({
     model: App.Restaurants,
-    url:'api/restaurants'
-//    url:"http://theplayatimes.com/welcome/api/v1/listings/restaurant/true.json"
+//    url:'api/restaurants'
+    url:"http://theplayatimes.com/welcome/api/v1/listings/restaurant/true.json"
 
 //    url:function(){return "http://theplayatimes.com/welcome/api/v1/listings/restaurant/true.json";},
 
@@ -40,8 +40,8 @@ App.Accommodations = Backbone.Model.extend();
 
 App.AccommodationsCollection = Backbone.Collection.extend({
     model: App.Accommodations,
-    url:'api/accommodations'
-//    url:"http://theplayatimes.com/welcome/api/v1/listings/accommodation/true.json"
+//    url:'api/accommodations'
+    url:"http://theplayatimes.com/welcome/api/v1/listings/accommodation/true.json"
 });
 
 
@@ -50,8 +50,8 @@ App.Attractions = Backbone.Model.extend();
 
 App.AttractionsCollection = Backbone.Collection.extend({
     model: App.Attractions,
-    url:'api/attractions'
-//    url:"http://theplayatimes.com/welcome/api/v1/listings/attraction/true.json"
+//    url:'api/attractions'
+    url:"http://theplayatimes.com/welcome/api/v1/listings/attraction/true.json"
 });
 
 
