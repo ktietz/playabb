@@ -42,7 +42,7 @@ App.getDynamicModelUrl = function(view) { // just swap which line is commented o
 // Restaurants ------------------------------------------------------
 App.Restaurants = Backbone.Model.extend({
     defaults: {
-        "logo":  ""
+        "logo":  "" // to make sure that it has a value.
     }
 });
 
