@@ -39,7 +39,6 @@ App.AppRouter = Backbone.Marionette.AppRouter.extend({
 ////                    self.iscroll = new iScroll('stuff', {hScrollbar: false, vScrollbar: false });
 //            console.log('New iScroll');
 //        }
-
     },
 
     home: function() {

@@ -46,6 +46,13 @@ function PageSlider(container) {
 
         currentPage.one('webkitTransitionEnd', function (e) {
             $(e.target).remove();
+
+            var scrollContainer = document.getElementById('stuff');
+            App.scroller = new FTScroller(scrollContainer, {
+                scrollbars: false,
+                scrollingX: false
+            });
+            console.log('added scroller');
         });
 
         // Force reflow. More information here: http://www.phpied.com/rendering-repaint-reflowrelayout-restyle/

@@ -90,15 +90,6 @@ body,
   padding: 0;
   height: 100%;
 }
-.scroll {
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-  position: absolute;
-  top: 60px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-}
 li > a.tappable-active {
   color: #fff;
   background-color: #4286f5;

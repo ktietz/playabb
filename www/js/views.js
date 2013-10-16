@@ -39,7 +39,7 @@ App.Layout = Backbone.Marionette.Layout.extend({
 App.RestaurantsListView = Backbone.Marionette.CollectionView.extend({
     itemView : App.RestaurantListItemView,
     tagName: 'ul',
-    className: 'restaurantList itemList scroll'
+    className: 'restaurantList itemList'
 });
 
 App.RestaurantListItemView = Backbone.Marionette.ItemView.extend({
@@ -50,7 +50,7 @@ App.RestaurantListItemView = Backbone.Marionette.ItemView.extend({
 
 App.RestaurantInfoView = Backbone.Marionette.ItemView.extend({
     template: '#restaurant-page-tpl',
-    className: 'scroll',
+    className: 'overthrow',
     ui: {
         phone : '.phone',
         email : '.email',
