@@ -11,13 +11,7 @@
 App.AppRouter = Backbone.Marionette.AppRouter.extend({
 
     routes: {
-        '' : 'home',
-        'restaurants' : 'restaurants',
-        'restaurants/:id' : 'restaurant',
-        'accommodations' : 'accommodations',
-        'accommodations/:id' : 'accommodation',
-        'attractions' : 'attractions',
-        'attractions/:id' : 'attraction'
+        '' : 'home'
     },
 
     goBack: function() {
@@ -30,26 +24,69 @@ App.AppRouter = Backbone.Marionette.AppRouter.extend({
 
         App.layout = new App.Layout();
         App.layout.render();
-
-//        if (App.iscroll) {
-//            console.log('Refresh iScroll');
-//            App.iscroll.refresh();
-//        } else {
-//            App.iscroll = new iScroll($('#container'), {desktopCompatibility: true});
-////                    self.iscroll = new iScroll('stuff', {hScrollbar: false, vScrollbar: false });
-//            console.log('New iScroll');
-//        }
     },
 
     home: function() {
         var self = this;
-        self.homeView = new App.HomeView();
-        this.slider.slidePage(self.homeView.render().$el);
-//        this.slider.slidePage(App.mApp.content.show(self.homeView.render().$el));
+        self.menuList = new App.MenuCollection();
+        self.menuList.fetch({
+            success: function(){
+                self.homeView = new App.Layout();
+                self.homeView.render();
 
-//        setTimeout(function () {
-//            App.iscroll.refresh();
-//        }, 0);
+                self.homeView.header.show(new App.MainMenuHeaderView());
+                self.homeView.content.show(new App.HomeView({
+                    collection : self.menuList,
+                    itemView : App.MenuListItemView
+                }));
+
+                self.slider.slidePage(self.homeView.$el);
+
+
+                // Add a route for each item that was added to the main menu.
+                self.menuList.each(function(item){
+                    App.router._addAppRoute(self, item.get('url'), 'listView');
+                    App.router._addAppRoute(self, item.get('url') + '/:id', 'itemView');
+                });
+            }
+        });
+    },
+
+    listView: function() {
+        var self = this;
+        var viewType = window.location.hash;
+
+        self.collection = new App.GenericCollection();
+//        self.collection.url(App.getDynamicModelUrl(viewType));
+        self.collection.fetch({
+            success: function() {
+                self.dynamicView = new App.Layout();
+                self.dynamicView.render();
+
+                self.dynamicView.header.show(new App.HeaderView());
+                self.dynamicView.content.show(new App.GenericListView({
+                    collection : self.collection,
+                    itemView : App.GenericListItemView
+                }));
+
+                self.slider.slidePage(self.dynamicView.$el);
+            }
+        });
+    },
+
+    itemView: function(id) {
+        var self = this;
+
+        self.itemData = self.collection.get(id);
+        self.view = new App.Layout();
+        self.view.render();
+
+        self.view.header.show(new App.HeaderView());
+        self.view.content.show(new App.GenericInfoView({
+            model : self.itemData
+        }));
+
+        self.slider.slidePage(self.view.$el);
     },
 
     restaurants: function(){
@@ -57,7 +94,6 @@ App.AppRouter = Backbone.Marionette.AppRouter.extend({
         self.restaurantsList = new App.RestaurantsCollection();
         self.restaurantsList.fetch({
             success: function() {
-//                self.restaurantsView = new App.Layout({ collection : self.restaurantsList });
                 self.restaurantsView = new App.Layout();
                 self.restaurantsView.render();
 
@@ -68,40 +104,23 @@ App.AppRouter = Backbone.Marionette.AppRouter.extend({
                 }));
 
                 self.slider.slidePage(self.restaurantsView.$el);
-
-//                if (self.iscroll) {
-//                    console.log('Refresh iScroll');
-//                    self.iscroll.refresh();
-//                } else {
-//                    self.iscroll = new iScroll('stuff', {desktopCompatibility: true});
-////                    self.iscroll = new iScroll('stuff', {hScrollbar: false, vScrollbar: false });
-//                    console.log('New iScroll');
-//                }
-
-//                setTimeout(function () {
-//                    App.iscroll.refresh();
-//                }, 0);
             }
         });
     },
 
     restaurant: function(id) {
         var self = this;
-//        self.restaurantsList = new App.RestaurantsCollection();
-//        self.restaurantsList.fetch({
-//            success: function() {
-                    self.restaurantItem = self.restaurantsList.get(id);
-                    self.restaurantView = new App.Layout();
-                    self.restaurantView.render();
 
-                    self.restaurantView.header.show(new App.HeaderView());
-                    self.restaurantView.content.show(new App.RestaurantInfoView({
-                        model : self.restaurantItem
-                    }));
+        self.restaurantItem = self.restaurantsList.get(id);
+        self.restaurantView = new App.Layout();
+        self.restaurantView.render();
 
-                    self.slider.slidePage(self.restaurantView.$el);
-//                });
-//            }
+        self.restaurantView.header.show(new App.HeaderView());
+        self.restaurantView.content.show(new App.RestaurantInfoView({
+            model : self.restaurantItem
+        }));
+
+        self.slider.slidePage(self.restaurantView.$el);
     },
 
     accommodations: function(){

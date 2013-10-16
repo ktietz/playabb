@@ -9,6 +9,30 @@
  */
 
 
+
+
+App.HomeView = Backbone.Marionette.CollectionView.extend({
+//    template: '#home-tpl'
+    tagName: 'ul',
+    className: 'mainMenu',
+    itemView: App.MenuListItemView
+});
+
+App.MenuListItemView = Backbone.Marionette.ItemView.extend({
+    template:'#menu-li-tpl',
+    tagName: 'li',
+    className: 'clearfix'
+});
+
+App.Layout = Backbone.Marionette.Layout.extend({
+    template: '#layout-tpl',
+
+    regions: {
+        header : 'header',
+        content : '#stuff'
+    }
+});
+
 App.HeaderView = Backbone.Marionette.ItemView.extend({
 //    el: 'header',
 //    className: 'back',
@@ -21,19 +45,48 @@ App.HeaderView = Backbone.Marionette.ItemView.extend({
     }
 });
 
-App.HomeView = Backbone.Marionette.ItemView.extend({
-    template: '#home-tpl'
+App.MainMenuHeaderView = Backbone.Marionette.ItemView.extend({
+    template: '#mainMenu-header-tpl',
 });
 
-App.Layout = Backbone.Marionette.Layout.extend({
-    template: '#layout-tpl',
+// Generic --------------------------------------------------------
+App.GenericListView = Backbone.Marionette.CollectionView.extend({
+    itemView : App.GenericListItemView,
+    tagName: 'ul',
+    className: 'genericList itemList'
+});
 
-    regions: {
-        header : 'header',
-        content : '#stuff'
+App.GenericListItemView = Backbone.Marionette.ItemView.extend({
+    template: '#generic-li-tpl',
+    tagName: 'li',
+    className: 'clearfix',
+    ui: {
+        logo : '.logo',
+        description : '.description',
+        link : 'a'
+    },
+    onRender: function() {
+        this.ui.link[0].href = window.location.hash + '/' + this.model.id;
+        App.HideBlankListItemInformation(this);
     }
-
 });
+
+App.GenericInfoView = Backbone.Marionette.ItemView.extend({
+    template: '#generic-page-tpl',
+    className: 'overthrow',
+    ui: {
+        phone : '.phone',
+        email : '.email',
+        website : '.website',
+        address : '.address',
+        logo : '.logo'
+    },
+    onRender: function(){
+        App.HideBlankInformation(this);
+    }
+});
+
+
 
 // Restaurants --------------------------------------------------------
 App.RestaurantsListView = Backbone.Marionette.CollectionView.extend({
@@ -68,7 +121,6 @@ App.RestaurantInfoView = Backbone.Marionette.ItemView.extend({
     onRender: function(){
        App.HideBlankInformation(this);
     }
-
 });
 
 App.HideBlankInformation = function(view) {

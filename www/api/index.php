@@ -5,11 +5,31 @@ require 'Slim/Slim.php';
 
 $app = new \Slim\Slim();
 
-$app->get('/restaurant', 'getRestaurants');
-$app->get('/accommodation', 'getAccommodations');
-$app->get('/attraction', 'getAttractions');
+$app->get('/restaurants', 'getRestaurants');
+$app->get('/accommodations', 'getAccommodations');
+$app->get('/attractions', 'getAttractions');
+$app->get('/menu', 'getMenuItems');
 
 $app->run();
+
+function getMenuItems() {
+    echo '[{
+        "id":1,
+        "name":"Accommodations",
+        "logo": "http://dev.karltietz.com/data/images/accommodationsLogo.png",
+        "url":"accommodations"
+        },{
+        "id":2,
+        "name":"Restaurants",
+        "logo":"http://dev.karltietz.com/data/images/restaurantsLogo.png",
+        "url":"restaurants"
+        },{
+        "id":3,
+        "name":"Attractions",
+        "logo":"http://dev.karltietz.com/data/images/attractionsLogo.png",
+        "url":"attractions"
+        }]';
+}
 
 function getRestaurants() {
     $json = file_get_contents('http://theplayatimes.com/welcome/api/v1/listings/restaurant/true.json');

@@ -29,6 +29,12 @@
     </div>
 </script>
 
+<script id="mainMenu-header-tpl" type="text/template">
+    <div class="title">
+        <span class="themeColor1">the</span><span class="themeColor2">playa</span><span class="themeColor3">times</span>
+    </div>
+</script>
+
 <script id="home-tpl" type="text/template">
     <header>
         <div class="title">
@@ -74,6 +80,59 @@
         </ul>
     </div>
 </script>
+
+<script id="menu-li-tpl" type="text/template">
+    <!--<img src="img/soccerball.png" class="menuItemLogo" alt=""/>-->
+    <a href="#<%= url %>">
+        <img src="<%= logo %>" class="menuItemLogo" alt=""/>
+        <%= name %>
+    </a>
+</script>
+
+
+
+<!--// Generic templates -------------------------------------------->
+<script id="generic-ul-tpl" type="text/template">
+    <ul class="genericList itemList"></ul>
+</script>
+
+<script id="generic-li-tpl" type="text/template">
+    <!--<li class="clearfix">-->
+    <a href="">
+        <div class="logo">
+            <img src="http://www.theplayatimes.com/<%= logo %>" alt=""/>
+        </div>
+        <div class="itemInfo">
+            <div class="itemName"><%= name %></div>
+            <!--<div class="infoPiece phone"><img src="img/phone.png" alt=""/><%= telephone %></div>-->
+            <!--<div class="infoPiece email"><img src="img/email.png" alt=""/><%= email %></div>-->
+            <!--<div class="infoPiece website"><img src="img/web.png" alt=""/><%= website %></div>-->
+            <div class="infoPiece description"><%= description %></div>
+        </div>
+    </a>
+    <!--</li>-->
+</script>
+
+<script id="generic-page-tpl" type="text/template">
+    <div class="itemView">
+        <div class="logo"><img src="img/<%= name %>.jpg" alt=""/></div>
+        <div class="itemInfo">
+            <div class="itemName"><%= name %></div>
+            <div class="infoPiece phone"><img src="img/phone.png" alt=""/><div class="text"><%= telephone %></div></div>
+            <div class="infoPiece email"><img src="img/email.png" alt=""/><div class="text"><%= email %></div></div>
+            <div class="infoPiece website"><img src="img/web.png" alt=""/><div class="text"><%= website %></div></div>
+        </div>
+        <div class="infoPiece address"><img src="img/mapPin.png" alt=""/><div class="text"><%= address %></div></div>
+        <div class="infoPiece description"><p><%= description %></p></div>
+    </div>
+</script>
+
+
+
+
+
+
+
 
 <!--// Restaurants and Bars page templates -------------------------------------------->
 <script id="restaurants-ul-tpl" type="text/template">

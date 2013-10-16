@@ -8,11 +8,35 @@
  */
 
 
+App.MenuItems = Backbone.Model.extend();
+
+App.MenuCollection = Backbone.Collection.extend({
+    model: App.MenuItems,
+    url: 'api/menu'
+});
+
+App.GenericModel = Backbone.Model.extend({
+    defaults: {
+        "logo":  ""
+    }
+});
+
+App.GenericCollection = Backbone.Collection.extend({
+    model: App.GenericModel,
+    url: function(){
+        return App.getDynamicModelUrl(window.location.hash.replace("#", ""));
+    }
+});
 
 App.getModelUrl = function(view) { // just swap which line is commented out to change location
     return 'api/' + view; // this is for local
 //    return "http://theplayatimes.com/welcome/api/v1/listings/" + view + '/true.json'; // this is for running live
-}
+};
+
+App.getDynamicModelUrl = function(view) { // just swap which line is commented out to change location
+    return 'api/' + view; // this is for local
+//    return "http://theplayatimes.com/welcome/api/v1/listings/" + view + '/true.json'; // this is for running live
+};
 
 // Restaurants ------------------------------------------------------
 App.Restaurants = Backbone.Model.extend({
