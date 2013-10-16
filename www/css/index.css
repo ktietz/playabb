@@ -212,6 +212,10 @@ ul li {
 .itemList .logo img {
   width: 100%;
 }
+.itemList .hidden {
+  visibility: hidden;
+  height: 2em;
+}
 .itemList .itemInfo {
   width: 72%;
   float: left;

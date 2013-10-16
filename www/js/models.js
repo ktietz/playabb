@@ -8,7 +8,11 @@
  */
 
 // Restaurants ------------------------------------------------------
-App.Restaurants = Backbone.Model.extend();
+App.Restaurants = Backbone.Model.extend({
+    defaults: {
+        "logo":  ""
+    }
+});
 
 App.RestaurantsCollection = Backbone.Collection.extend({
     model: App.Restaurants,

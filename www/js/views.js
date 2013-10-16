@@ -45,7 +45,14 @@ App.RestaurantsListView = Backbone.Marionette.CollectionView.extend({
 App.RestaurantListItemView = Backbone.Marionette.ItemView.extend({
     template: '#restaurant-li-tpl',
     tagName: 'li',
-    className: 'clearfix'
+    className: 'clearfix',
+    ui: {
+        logo : '.logo',
+        description : '.description'
+    },
+    onRender: function() {
+        App.HideBlankListItemInformation(this);
+    }
 });
 
 App.RestaurantInfoView = Backbone.Marionette.ItemView.extend({
@@ -55,7 +62,8 @@ App.RestaurantInfoView = Backbone.Marionette.ItemView.extend({
         phone : '.phone',
         email : '.email',
         website : '.website',
-        address : '.address'
+        address : '.address',
+        logo : '.logo'
     },
     onRender: function(){
        App.HideBlankInformation(this);
@@ -76,7 +84,19 @@ App.HideBlankInformation = function(view) {
     if (view.model.get('address') === ""){
         view.ui.address.addClass('hidden');
     }
+    if (view.model.get('logo') === ""){
+        view.ui.logo.addClass('hidden');
+    }
 };
+
+App.HideBlankListItemInformation = function(view) {
+    if (view.model.get('logo') === ""){
+        view.ui.logo.addClass('hidden');
+    }
+    if (view.model.get('description') === ""){
+        view.ui.description.addClass('hidden');
+    }
+}
 
 // Accommodations --------------------------------------------------------
 App.AccommodationsListView = Backbone.Marionette.CollectionView.extend({
