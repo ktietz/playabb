@@ -36,8 +36,10 @@ body {
 //        color-stop(0.51, #E4E4E4)
 //    );
 //    background-attachment:fixed;
-    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
-    font-size:12px;
+//    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-size:16px;
+//    line-height: 1.2em;
 //    height:100%;
 //    margin:0px;
 //    padding:0px;
@@ -139,7 +141,7 @@ html, body, #map-canvas {
 }
 
 .scroll{
-//  .scroll();
+  .scroll();
 }
 //
 //.overthrow-enabled .overthrow {
@@ -182,7 +184,7 @@ li>a.tappable-active {
 // Clearfix ----------------------------------------
 .clearfix:after {
   content: ".";
-  display: block;
+//  display: block; // Keeping this line out prevents the little spaces between list items on some browsers.
   clear: both;
   visibility: hidden;
   line-height: 0;
@@ -204,14 +206,14 @@ li>a.tappable-active {
 @headerColor: @themeColor1;
 @textColor: #575757;
 
-@itemTitle: 2em;
+@itemTitle: 1.5em;
 @itemInfo: 1em;
 
 
 // Main styles --------------------------------------
 body {
-  font-size: 16px;
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+//  font-size: 16px;
+//  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: 300;
 }
 
@@ -329,8 +331,7 @@ ul {
     .description{
       overflow: hidden;
       text-overflow: ellipsis;
-//      word-wrap: nowrap;
-      max-height: 3.5em;
+      max-height: 3.6em;
     }
 //    .description:after {
 //      content: "";

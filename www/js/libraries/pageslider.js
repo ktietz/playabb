@@ -46,13 +46,6 @@ function PageSlider(container) {
 
         currentPage.one('webkitTransitionEnd', function (e) {
             $(e.target).remove();
-
-            var scrollContainer = document.getElementById('stuff');
-            App.scroller = new FTScroller(scrollContainer, {
-                scrollbars: false,
-                scrollingX: false
-            });
-            console.log('added scroller');
         });
 
         // Force reflow. More information here: http://www.phpied.com/rendering-repaint-reflowrelayout-restyle/
@@ -62,6 +55,14 @@ function PageSlider(container) {
         page.attr("class", "page transition page-center");
         currentPage.attr("class", "page transition " + (from === "page-left" ? "page-right" : "page-left"));
         currentPage = page;
+
+//        var scrollContainer = document.getElementById('stuff');
+//
+//        var scroller = new FTScroller(scrollContainer, {
+//            scrollbars: false,
+//            scrollingX: false
+//        });
+//        console.log('added scroller');
     };
 
     this.back = function() {

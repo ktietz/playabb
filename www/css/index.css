@@ -22,8 +22,8 @@
 
 }
 body {
-  font-family: 'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
-  font-size: 12px;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-size: 16px;
 }
 /* Portrait layout (default) */
 .app {
@@ -90,6 +90,15 @@ body,
   padding: 0;
   height: 100%;
 }
+.scroll {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  position: absolute;
+  top: 60px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
 li > a.tappable-active {
   color: #fff;
   background-color: #4286f5;
@@ -117,7 +126,6 @@ li > a.tappable-active {
 }
 .clearfix:after {
   content: ".";
-  display: block;
   clear: both;
   visibility: hidden;
   line-height: 0;
@@ -127,8 +135,6 @@ li > a.tappable-active {
   display: inline-block;
 }
 body {
-  font-size: 16px;
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: 300;
 }
 header {
@@ -213,7 +219,7 @@ ul li {
   vertical-align: middle;
 }
 .itemList .itemInfo .itemName {
-  font-size: 2em;
+  font-size: 1.5em;
   margin: 0 0 0.3em 0.3em;
 }
 .itemList .itemInfo .infoPiece {
@@ -222,7 +228,7 @@ ul li {
 .itemList .itemInfo .description {
   overflow: hidden;
   text-overflow: ellipsis;
-  max-height: 3.5em;
+  max-height: 3.6em;
 }
 .itemList .itemInfo img {
   max-width: 1.3em;
@@ -262,7 +268,7 @@ ul li {
   vertical-align: middle;
 }
 .itemView .itemInfo .itemName {
-  font-size: 2em;
+  font-size: 1.5em;
   margin: 0 0 0.3em 0.3em;
 }
 .itemView .itemInfo img {

@@ -19,7 +19,7 @@
 <script id="layout-tpl" type="text/template">
     <!--<section>-->
         <header></header>
-        <div id="stuff" class="overthrow"></div>
+        <div id="stuff" class="scroll"></div>
     <!--</section>-->
 </script>
 
@@ -35,7 +35,7 @@
             <span class="themeColor1">the</span><span class="themeColor2">playa</span><span class="themeColor3">times</span>
         </div>
     </header>
-    <div id="stuff" class="overthrow">
+    <div id="stuff" class="scroll">
         <ul class="mainMenu">
             <a href="#ActivitiesView">
                 <li>
@@ -83,7 +83,9 @@
 <script id="restaurant-li-tpl" type="text/template">
     <!--<li class="clearfix">-->
     <a href="#restaurants/<%= id %>">
-        <div class="logo"><img src="img/<%= name %>.jpg" alt=""/></div>
+        <div class="logo">
+            <!--<img src="img/<%= name %>.jpg" alt=""/>-->
+        </div>
         <div class="itemInfo">
             <div class="itemName"><%= name %></div>
             <!--<div class="infoPiece phone"><img src="img/phone.png" alt=""/><%= telephone %></div>-->
@@ -178,7 +180,7 @@
 <script type="text/javascript" src="js/libraries/backbone.marionette.js"></script>
 <!--<script type="text/javascript" src="js/libraries/iscroll.js"></script>-->
 <!--<script type="text/javascript" src="js/libraries/overthrow.js"></script>-->
-<script type="text/javascript" src="js/libraries/ftscroller.js"></script>
+<!--<script type="text/javascript" src="js/libraries/ftscroller.js"></script>-->
 <script src="./js/app.js"></script>
 <script src="./js/router.js"></script>
 <script src="./js/models.js"></script>
@@ -194,6 +196,17 @@
 
 <script>
 //     this function calls google maps asynchronously when the script is dynamically added to the view
+
+var myScroll;
+function loaded() {
+////    setTimeout(function () {
+//        myScroll = new iScroll('stuff');
+////    }, 100);
+//    console.log(myScroll);
+//}
+//window.addEventListener('load', loaded, false);
+
+
     function initialize() {
         var mapOptions = {
             zoom: 8,
