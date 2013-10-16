@@ -91,7 +91,8 @@ body,
   height: 100%;
 }
 .scroll {
-  overflow: auto;
+  overflow-x: auto;
+  overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
   position: absolute;
   top: 60px;
