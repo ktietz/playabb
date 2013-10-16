@@ -37,7 +37,7 @@
     </header>
     <div id="stuff" class="scroll">
         <ul class="mainMenu">
-            <a href="#ActivitiesView">
+            <a href="#activities">
                 <li>
                     <img src="img/soccerball.png" class="menuItemLogo" alt=""/>
                     Activities & Events
@@ -51,21 +51,21 @@
                 </li>
             </a>
 
-            <a href="#AccomodationsView">
+            <a href="#accommodations">
                 <li>
                     <img src="img/accommodationsLogo.png" class="menuItemLogo" alt=""/>
-                    Accomodations
+                    Accommodations
                 </li>
             </a>
 
-            <a href="#DiscoverView">
+            <a href="#discover">
                 <li>
                     <img src="img/binoculars.png" class="menuItemLogo" alt=""/>
                     Discover
                 </li>
             </a>
 
-            <a href="#AttractionsView">
+            <a href="#attractions">
                 <li>
                     <img src="img/attractionsLogo.png" class="menuItemLogo" alt=""/>
                     Attractions
@@ -129,13 +129,13 @@
 </script>
 
 <!--// Accommodations page templates -------------------------------------------->
-<script id="accomodations-tpl" type="text/template">
-    <header><div class="back"><img src="img/backButton.png" alt="Back"/></div>Accomodations</header>
-    <ul class="accomodationsList itemList"></ul>
+<script id="accommodations-tpl" type="text/template">
+    <header><div class="back"><img src="img/backButton.png" alt="Back"/></div>Accommodations</header>
+    <ul class="accommodationsList itemList"></ul>
 </script>
 
-<script id="accomodation-li-tpl" type="text/template">
-    <li class="clearfix"><a href="#AccomodationView/<%= id %>">
+<script id="accommodation-li-tpl" type="text/template">
+    <li class="clearfix"><a href="#accommodations/<%= id %>">
         <div class="logo"><img src="img/<%= name %>.jpg" alt=""/></div>
 
         <div class="itemInfo">
@@ -148,7 +148,7 @@
 
 </script>
 
-<script id="accomodation-page-tpl" type="text/template">
+<script id="accommodation-page-tpl" type="text/template">
     <header><div class="back"><img src="img/backButton.png" alt="Back"/></div><%= name %></header>
     <%= address %>
 </script>
@@ -159,7 +159,7 @@
 </script>
 
 <script id="attraction-li-tpl" type="text/template">
-    <li><a href="#AttractionView/<%= id %>"><%= name %></br>Address:<%= address %></a></li>
+    <li><a href="#attractions/<%= id %>"><%= name %></br>Address:<%= address %></a></li>
 </script>
 
 <script id="attraction-page-tpl" type="text/template">

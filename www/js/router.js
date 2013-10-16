@@ -119,6 +119,9 @@ App.AppRouter = Backbone.Marionette.AppRouter.extend({
                 }));
 
                 self.slider.slidePage(self.accommodationsView.$el);
+            },
+            failure: function(){
+                console.log('Could not get data for accommodations.');
             }
         });
     },
