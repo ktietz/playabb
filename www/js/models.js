@@ -12,7 +12,8 @@ App.MenuItems = Backbone.Model.extend();
 
 App.MenuCollection = Backbone.Collection.extend({
     model: App.MenuItems,
-    url: 'api/menu'
+//    url: 'api/menu'
+    url: 'http://dev.karltietz.com/data/menuData.json'
 });
 
 App.GenericModel = Backbone.Model.extend({
@@ -34,8 +35,8 @@ App.getModelUrl = function(view) { // just swap which line is commented out to c
 };
 
 App.getDynamicModelUrl = function(view) { // just swap which line is commented out to change location
-    return 'api/' + view; // this is for local
-//    return "http://theplayatimes.com/welcome/api/v1/listings/" + view + '/true.json'; // this is for running live
+//    return 'api/' + view; // this is for local
+    return "http://theplayatimes.com/welcome/api/v1/listings/" + view + '/true.json'; // this is for running live
 };
 
 // Restaurants ------------------------------------------------------
@@ -47,12 +48,12 @@ App.Restaurants = Backbone.Model.extend({
 
 App.RestaurantsCollection = Backbone.Collection.extend({
     model: App.Restaurants,
-    url: function() {
-        data =  App.getModelUrl('restaurant');
-        console.log(data);
-        return data;
-    }
-//    url:"http://theplayatimes.com/welcome/api/v1/listings/restaurant/true.json"
+//    url: function() {
+//        data =  App.getModelUrl('restaurant');
+//        console.log(data);
+//        return data;
+//    }
+    url:"http://theplayatimes.com/welcome/api/v1/listings/restaurant/true.json"
 
 });
 
@@ -61,10 +62,10 @@ App.Accommodations = Backbone.Model.extend();
 
 App.AccommodationsCollection = Backbone.Collection.extend({
     model: App.Accommodations,
-    url: function() {
-        return App.getModelUrl('accommodation');
-    }
-//    url:"http://theplayatimes.com/welcome/api/v1/listings/accommodation/true.json"
+//    url: function() {
+//        return App.getModelUrl('accommodation');
+//    }
+    url:"http://theplayatimes.com/welcome/api/v1/listings/accommodation/true.json"
 });
 
 
@@ -73,10 +74,10 @@ App.Attractions = Backbone.Model.extend();
 
 App.AttractionsCollection = Backbone.Collection.extend({
     model: App.Attractions,
-    url: function() {
-        return App.getModelUrl('attraction');
-    }
-//    url:"http://theplayatimes.com/welcome/api/v1/listings/attraction/true.json"
+//    url: function() {
+//        return App.getModelUrl('attraction');
+//    }
+    url:"http://theplayatimes.com/welcome/api/v1/listings/attraction/true.json"
 });
 
 

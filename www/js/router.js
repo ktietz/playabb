@@ -42,7 +42,6 @@ App.AppRouter = Backbone.Marionette.AppRouter.extend({
 
                 self.slider.slidePage(self.homeView.$el);
 
-
                 // Add a route for each item that was added to the main menu.
                 self.menuList.each(function(item){
                     App.router._addAppRoute(self, item.get('url'), 'listView');
@@ -54,7 +53,7 @@ App.AppRouter = Backbone.Marionette.AppRouter.extend({
 
     listView: function() {
         var self = this;
-        var viewType = window.location.hash;
+        var viewType = window.location.hash.replace("#", "");
 
         self.collection = new App.GenericCollection();
 //        self.collection.url(App.getDynamicModelUrl(viewType));
@@ -62,7 +61,7 @@ App.AppRouter = Backbone.Marionette.AppRouter.extend({
             success: function() {
                 self.dynamicView = new App.Layout();
                 self.dynamicView.render();
-
+                // add the title of the page
                 self.dynamicView.header.show(new App.HeaderView());
                 self.dynamicView.content.show(new App.GenericListView({
                     collection : self.collection,

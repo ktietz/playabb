@@ -34,8 +34,6 @@ App.Layout = Backbone.Marionette.Layout.extend({
 });
 
 App.HeaderView = Backbone.Marionette.ItemView.extend({
-//    el: 'header',
-//    className: 'back',
     template: '#header-tpl',
     events: {
         'click .back' : 'goBack'
