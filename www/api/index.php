@@ -5,9 +5,9 @@ require 'Slim/Slim.php';
 
 $app = new \Slim\Slim();
 
-$app->get('/restaurants', 'getRestaurants');
-$app->get('/accommodations', 'getAccommodations');
-$app->get('/attractions', 'getAttractions');
+$app->get('/restaurant', 'getRestaurants');
+$app->get('/accommodation', 'getAccommodations');
+$app->get('/attraction', 'getAttractions');
 
 $app->run();
 
