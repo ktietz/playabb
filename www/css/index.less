@@ -146,8 +146,9 @@ html, body, #map-canvas {
 
 .overthrow-enabled .overthrow {
   overflow-y: auto;
+  overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
-  height: 100%;
+  height: 100% - 15em;
 }
 
 li>a.tappable-active {
@@ -376,6 +377,7 @@ ul {
   .infoPiece {
     display: inline-block;
     margin: 0 0 0.5em 1.1em;
+    word-break:break-all;
     .text{
       font-size: @itemInfo;
       float: right;
@@ -386,11 +388,6 @@ ul {
       float: left;
 //      max-width: 1em;
     }
-  }
-
-  .website{
-    word-break:break-all;
-//    word-wrap: break-word;
   }
 
   .logo{

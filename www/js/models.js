@@ -10,14 +10,14 @@
 
 App.MenuItems = Backbone.Model.extend();
 App.getDynamicModelUrl = function(view) { // just swap which line is commented out to change location
-//    return 'api/' + view; // this is for local
-    return "http://theplayatimes.com/welcome/api/v1/listings/" + view + '/true.json'; // this is for running live
+    return 'api/' + view; // this is for local
+//    return "http://theplayatimes.com/welcome/api/v1/listings/" + view + '/true.json'; // this is for running live
 };
 
 App.MenuCollection = Backbone.Collection.extend({
     model: App.MenuItems,
-//    url: 'api/menu'
-    url: 'http://dev.karltietz.com/data/menuData.json'
+    url: 'api/menu'
+//    url: 'http://dev.karltietz.com/data/menuData.json'
 });
 
 App.GenericModel = Backbone.Model.extend({

@@ -71,7 +71,7 @@ App.GenericListItemView = Backbone.Marionette.ItemView.extend({
 
 App.GenericInfoView = Backbone.Marionette.ItemView.extend({
     template: '#generic-page-tpl',
-    className: 'overthrow',
+//    className: 'overthrow',
     ui: {
         phone : '.phone',
         email : '.email',
@@ -84,42 +84,12 @@ App.GenericInfoView = Backbone.Marionette.ItemView.extend({
     }
 });
 
-
-
-// Restaurants --------------------------------------------------------
-App.RestaurantsListView = Backbone.Marionette.CollectionView.extend({
-    itemView : App.RestaurantListItemView,
-    tagName: 'ul',
-    className: 'restaurantList itemList'
+// Error view ------------------------------------------------------------------------------------------------
+App.ErrorView = Backbone.Marionette.ItemView.extend({
+    template: '#nodata-tpl',
+    className: 'errorMessage'
 });
 
-App.RestaurantListItemView = Backbone.Marionette.ItemView.extend({
-    template: '#restaurant-li-tpl',
-    tagName: 'li',
-    className: 'clearfix',
-    ui: {
-        logo : '.logo',
-        description : '.description'
-    },
-    onRender: function() {
-        App.HideBlankListItemInformation(this);
-    }
-});
-
-App.RestaurantInfoView = Backbone.Marionette.ItemView.extend({
-    template: '#restaurant-page-tpl',
-    className: 'overthrow',
-    ui: {
-        phone : '.phone',
-        email : '.email',
-        website : '.website',
-        address : '.address',
-        logo : '.logo'
-    },
-    onRender: function(){
-       App.HideBlankInformation(this);
-    }
-});
 
 App.HideBlankInformation = function(view) {
     if (view.model.get('telephone') === ""){
@@ -146,67 +116,97 @@ App.HideBlankListItemInformation = function(view) {
     if (view.model.get('description') === ""){
         view.ui.description.addClass('hidden');
     }
-}
+};
 
-// Accommodations --------------------------------------------------------
-App.AccommodationsListView = Backbone.Marionette.CollectionView.extend({
-    itemView : App.AccommodationsListItemView,
-    tagName: 'ul',
-    className: 'accommodationsList itemList'
-});
+//
+//// Restaurants --------------------------------------------------------
+//App.RestaurantsListView = Backbone.Marionette.CollectionView.extend({
+//    itemView : App.RestaurantListItemView,
+//    tagName: 'ul',
+//    className: 'restaurantList itemList'
+//});
+//
+//App.RestaurantListItemView = Backbone.Marionette.ItemView.extend({
+//    template: '#restaurant-li-tpl',
+//    tagName: 'li',
+//    className: 'clearfix',
+//    ui: {
+//        logo : '.logo',
+//        description : '.description'
+//    },
+//    onRender: function() {
+//        App.HideBlankListItemInformation(this);
+//    }
+//});
+//
+//App.RestaurantInfoView = Backbone.Marionette.ItemView.extend({
+//    template: '#restaurant-page-tpl',
+//    className: 'overthrow',
+//    ui: {
+//        phone : '.phone',
+//        email : '.email',
+//        website : '.website',
+//        address : '.address',
+//        logo : '.logo'
+//    },
+//    onRender: function(){
+//       App.HideBlankInformation(this);
+//    }
+//});
 
-App.AccommodationsListItemView = Backbone.Marionette.ItemView.extend({
-    template: '#accommodation-li-tpl',
-    tagName: 'li',
-    className: 'clearfix'
-});
+//// Accommodations --------------------------------------------------------
+//App.AccommodationsListView = Backbone.Marionette.CollectionView.extend({
+//    itemView : App.AccommodationsListItemView,
+//    tagName: 'ul',
+//    className: 'accommodationsList itemList'
+//});
+//
+//App.AccommodationsListItemView = Backbone.Marionette.ItemView.extend({
+//    template: '#accommodation-li-tpl',
+//    tagName: 'li',
+//    className: 'clearfix'
+//});
+//
+//App.AccommodationInfoView = Backbone.Marionette.ItemView.extend({
+//    template: '#accommodation-page-tpl',
+//    ui: {
+//        phone : '.phone',
+//        email : '.email',
+//        website : '.website',
+//        address : '.address'
+//    },
+//    onRender: function(){
+//        App.HideBlankInformation(this);
+//    }
+//});
+//
+//
+//// Attractions --------------------------------------------------------
+//App.AttractionsListView = Backbone.Marionette.CollectionView.extend({
+//    itemView : App.AttractionsListItemView,
+//    tagName: 'ul',
+//    className: 'attractionsList itemList'
+//});
+//
+//App.AttractionsListItemView = Backbone.Marionette.ItemView.extend({
+//    template: '#attraction-li-tpl',
+//    tagName: 'li',
+//    className: 'clearfix'
+//});
+//
+//App.AttractionInfoView = Backbone.Marionette.ItemView.extend({
+//    template: '#attraction-page-tpl',
+//    ui: {
+//        phone : '.phone',
+//        email : '.email',
+//        website : '.website',
+//        address : '.address'
+//    },
+//    onRender: function(){
+//        App.HideBlankInformation(this);
+//    }
+//});
 
-App.AccommodationInfoView = Backbone.Marionette.ItemView.extend({
-    template: '#accommodation-page-tpl',
-    ui: {
-        phone : '.phone',
-        email : '.email',
-        website : '.website',
-        address : '.address'
-    },
-    onRender: function(){
-        App.HideBlankInformation(this);
-    }
-});
-
-
-// Attractions --------------------------------------------------------
-App.AttractionsListView = Backbone.Marionette.CollectionView.extend({
-    itemView : App.AttractionsListItemView,
-    tagName: 'ul',
-    className: 'attractionsList itemList'
-});
-
-App.AttractionsListItemView = Backbone.Marionette.ItemView.extend({
-    template: '#attraction-li-tpl',
-    tagName: 'li',
-    className: 'clearfix'
-});
-
-App.AttractionInfoView = Backbone.Marionette.ItemView.extend({
-    template: '#attraction-page-tpl',
-    ui: {
-        phone : '.phone',
-        email : '.email',
-        website : '.website',
-        address : '.address'
-    },
-    onRender: function(){
-        App.HideBlankInformation(this);
-    }
-});
-
-
-// Error view ------------------------------------------------------------------------------------------------
-App.ErrorView = Backbone.Marionette.ItemView.extend({
-   template: '#nodata-tpl',
-    className: 'errorMessage'
-});
 
 
 })();

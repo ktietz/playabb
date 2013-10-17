@@ -101,8 +101,9 @@ body,
 }
 .overthrow-enabled .overthrow {
   overflow-y: auto;
+  overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
-  height: 100%;
+  height: 85%;
 }
 li > a.tappable-active {
   color: #fff;
@@ -254,6 +255,7 @@ ul li {
 .itemView .infoPiece {
   display: inline-block;
   margin: 0 0 0.5em 1.1em;
+  word-break: break-all;
 }
 .itemView .infoPiece .text {
   font-size: 0.8em;
@@ -262,9 +264,6 @@ ul li {
 }
 .itemView .infoPiece img {
   float: left;
-}
-.itemView .website {
-  word-break: break-all;
 }
 .itemView .logo {
   float: left;
