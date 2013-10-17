@@ -29,6 +29,7 @@ function PageSlider(container) {
         }
 
         $("#stuff").niceScroll();
+        // niceScroll
 
     };
 
