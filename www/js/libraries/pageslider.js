@@ -28,9 +28,6 @@ function PageSlider(container) {
             this.slidePageFrom(page, 'page-right');
         }
 
-        $("#stuff").niceScroll();
-        // niceScroll
-
     };
 
     // Use this function directly if you want to control the sliding direction outside PageSlider
