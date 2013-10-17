@@ -264,7 +264,7 @@ ul li {
   float: left;
 }
 .itemView .website {
-  word-wrap: break-word;
+  word-break: break-all;
 }
 .itemView .logo {
   float: left;
