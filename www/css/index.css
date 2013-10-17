@@ -100,8 +100,9 @@ body,
   right: 0px;
 }
 .overthrow-enabled .overthrow {
-  overflow: auto;
+  overflow-y: auto;
   -webkit-overflow-scrolling: touch;
+  height: 100%;
 }
 li > a.tappable-active {
   color: #fff;

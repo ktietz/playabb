@@ -9,6 +9,10 @@
 
 
 App.MenuItems = Backbone.Model.extend();
+App.getDynamicModelUrl = function(view) { // just swap which line is commented out to change location
+//    return 'api/' + view; // this is for local
+    return "http://theplayatimes.com/welcome/api/v1/listings/" + view + '/true.json'; // this is for running live
+};
 
 App.MenuCollection = Backbone.Collection.extend({
     model: App.MenuItems,
@@ -34,10 +38,7 @@ App.getModelUrl = function(view) { // just swap which line is commented out to c
 //    return "http://theplayatimes.com/welcome/api/v1/listings/" + view + '/true.json'; // this is for running live
 };
 
-App.getDynamicModelUrl = function(view) { // just swap which line is commented out to change location
-//    return 'api/' + view; // this is for local
-    return "http://theplayatimes.com/welcome/api/v1/listings/" + view + '/true.json'; // this is for running live
-};
+
 
 //Restaurants ------------------------------------------------------
 App.Restaurants = Backbone.Model.extend({
