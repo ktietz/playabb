@@ -103,32 +103,13 @@ body,
   overflow-y: auto;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
+}
+.overthrow {
   height: 85%;
 }
 li > a.tappable-active {
   color: #fff;
   background-color: #4286f5;
-}
-.page {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  -webkit-transform: translate3d(0, 0, 0);
-}
-.stage-center {
-  top: 0;
-  left: 0;
-}
-.stage-left {
-  left: -100%;
-}
-.stage-right {
-  left: 100%;
-}
-.transition {
-  -moz-transition-duration: .375s;
-  -webkit-transition-duration: .375s;
-  -o-transition-duration: .375s;
 }
 .clearfix:after {
   content: ".";
@@ -197,17 +178,22 @@ ul li {
   padding: 0;
   margin: 0;
 }
-.mainMenu a {
-  text-decoration: none;
-  color: #575757;
-}
 .mainMenu li {
   font-size: 1.5em;
+}
+.mainMenu li a {
+  text-decoration: none;
+  color: #575757;
+  width: 100%;
+  height: 100%;
 }
 .mainMenu .menuItemLogo {
   width: 1em;
   height: 1em;
   margin-right: 0.7em;
+}
+.itemList .featured {
+  background-color: #ffac94;
 }
 .itemList a {
   color: #575757;
@@ -221,10 +207,6 @@ ul li {
 }
 .itemList .logo img {
   width: 100%;
-}
-.itemList .hidden {
-  visibility: hidden;
-  height: 2em;
 }
 .itemList .itemInfo {
   width: 72%;
@@ -249,47 +231,50 @@ ul li {
   max-height: 1.3em;
   margin: 0 0.5em -0.1em 0;
 }
+.itemList .hidden {
+  visibility: hidden;
+}
 .itemView {
   padding: 0.5em 0.5em 0 0;
 }
-.itemView .infoPiece {
-  display: inline-block;
-  margin: 0 0 0.5em 1.1em;
-  word-break: break-all;
-}
-.itemView .infoPiece .text {
-  font-size: 0.8em;
-  float: right;
-  max-width: 83%;
-}
-.itemView .infoPiece img {
-  float: left;
-}
 .itemView .logo {
-  float: left;
-  width: 28%;
+  float: right;
   max-width: 15em;
-  margin-right: 0.7em;
-  margin-bottom: 0.7em;
 }
 .itemView .logo img {
   width: 100%;
 }
-.itemView .itemInfo {
-  width: 66%;
-  float: right;
+.itemView .website .email .address {
+  word-break: break-all;
+}
+.itemView .infoPiece {
+  margin: 0 0 0.5em 1.1em;
+  display: inline-block;
+  float: left;
+  width: 100%;
+  min-height: 1em;
+}
+.itemView .infoPiece .text {
+  font-size: 0.8em;
+  float: left;
+  max-width: 83%;
+  word-break: break-all;
+}
+.itemView .infoPiece .icon {
+  float: left;
+  min-width: 2.5em;
+}
+.itemView .infoPiece .icon img {
+  float: left;
+  max-width: 1.5em;
+  max-height: 1.2em;
 }
 .itemView .itemInfo .itemName {
   font-size: 1.5em;
   margin: 0 0 0.3em 0.3em;
 }
-.itemView .itemInfo img {
-  max-width: 1.3em;
-  max-height: 1.3em;
-  margin: 0 0.7em -0.1em 0;
-}
 .itemView .address .text {
-  float: right;
+  float: left;
   width: 87%;
 }
 .itemView .address img {
@@ -306,6 +291,9 @@ ul li {
 }
 .itemView .hidden {
   visibility: hidden;
+  position: absolute;
+  left: -1000em;
+  width: 0%;
 }
 #container {
   position: absolute;

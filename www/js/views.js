@@ -26,7 +26,6 @@ App.MenuListItemView = Backbone.Marionette.ItemView.extend({
 
 App.Layout = Backbone.Marionette.Layout.extend({
     template: '#layout-tpl',
-
     regions: {
         header : 'header',
         content : '#stuff'
@@ -57,7 +56,7 @@ App.GenericListView = Backbone.Marionette.CollectionView.extend({
 App.GenericListItemView = Backbone.Marionette.ItemView.extend({
     template: '#generic-li-tpl',
     tagName: 'li',
-    className: 'clearfix',
+    className: 'clearfix nonfeatured',
     ui: {
         logo : '.logo',
         description : '.description',
@@ -66,6 +65,10 @@ App.GenericListItemView = Backbone.Marionette.ItemView.extend({
     onRender: function() {
         this.ui.link[0].href = window.location.hash + '/' + this.model.id;
         App.HideBlankListItemInformation(this);
+//        if (this.model.get('featured') = 'true'){
+//            this.removeClass('nonfeatured');
+//            this.addClass('featured');
+//        }
     }
 });
 

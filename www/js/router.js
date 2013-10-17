@@ -44,19 +44,19 @@ App.AppRouter = Backbone.Marionette.AppRouter.extend({
 
                 // Add a route for each item that was added to the main menu.
                 self.menuList.each(function(item){
-                    App.router._addAppRoute(self, item.get('url'), 'listView');
-                    App.router._addAppRoute(self, item.get('url') + '/:id', 'itemView');
+                    App.router._addAppRoute(self, item.get('id').toString(), 'listView');
+                    App.router._addAppRoute(self, item.get('id').toString() + '/:id', 'itemView');
                 });
             },
             error: function() {
-                self.nodata(self);
+                self.nodatahome(self);
             }
         });
     },
 
     listView: function() {
         var self = this;
-        var viewType = window.location.hash.replace("#", "");
+//        var viewType = window.location.hash.replace("#", "");
 
         self.collection = new App.GenericCollection();
 //        self.collection.url(App.getDynamicModelUrl(viewType));
@@ -72,9 +72,10 @@ App.AppRouter = Backbone.Marionette.AppRouter.extend({
                 }));
 
                 self.slider.slidePage(self.dynamicView.$el);
+//                $('.overthrow').height($('.overthrow').height() - 60);
             },
             error: function() {
-                self.nodata(self);
+                self.nodataback(self);
             }
         });
     },
@@ -96,11 +97,22 @@ App.AppRouter = Backbone.Marionette.AppRouter.extend({
 
 
 
-    nodata: function(passedView) {
+    nodatahome: function(passedView) {
         passedView.view = new App.Layout();
         passedView.view.render();
 
         passedView.view.header.show(new App.MainMenuHeaderView());
+        passedView.view.content.show(new App.ErrorView());
+
+        passedView.slider.slidePage(passedView.view.$el);
+
+    },
+
+    nodataback: function(passedView) {
+        passedView.view = new App.Layout();
+        passedView.view.render();
+
+        passedView.view.header.show(new App.HeaderView());
         passedView.view.content.show(new App.ErrorView());
 
         passedView.slider.slidePage(passedView.view.$el);

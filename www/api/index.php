@@ -9,44 +9,53 @@ $app->get('/restaurant', 'getRestaurants');
 $app->get('/accommodation', 'getAccommodations');
 $app->get('/attraction', 'getAttractions');
 $app->get('/menu', 'getMenuItems');
+$app->get('/:id', function($id){
+    $json = file_get_contents('http://theplayatimes.com/welcome/api/v1/listings/' . $id . '/true.json');
+    echo $json;
+});
 
 $app->run();
 
-function getMenuItems() {
-    echo '[{
-        "id":1,
-        "name":"Accommodations",
-        "logo": "http://dev.karltietz.com/data/images/accommodationsLogo.png",
-        "url":"accommodation"
-        },{
-        "id":2,
-        "name":"Restaurants & Bars",
-        "logo":"http://dev.karltietz.com/data/images/restaurantsLogo.png",
-        "url":"restaurant"
-        },{
-        "id":3,
-        "name":"Attractions",
-        "logo":"http://dev.karltietz.com/data/images/attractionsLogo.png",
-        "url":"attraction"
-        },{
-        "id":4,
-        "name":"Transportation",
-        "logo":"",
-        "url":"transportation"
-        },{
-        "id":5,
-        "name":"Shopping",
-        "logo":"",
-        "url":"shopping"
-        },{
-        "id":6,
-        "name":"Night Life",
-        "logo":"",
-        "url":"nightlife"
-        }]';
+function getData() {
+    $json = file_get_contents('http://theplayatimes.com/welcome/api/v1/listings//true.json');
+    echo $json;
+}
 
-//    $json = file_get_contents('http://dev.karltietz.com/data/menuData.json');
-//    echo $json;
+function getMenuItems() {
+//    echo '[{
+//        "id":1,
+//        "name":"Accommodations",
+//        "logo": "http://dev.karltietz.com/data/images/accommodationsLogo.png",
+//        "url":"accommodation"
+//        },{
+//        "id":2,
+//        "name":"Restaurants & Bars",
+//        "logo":"http://dev.karltietz.com/data/images/restaurantsLogo.png",
+//        "url":"restaurant"
+//        },{
+//        "id":3,
+//        "name":"Attractions",
+//        "logo":"http://dev.karltietz.com/data/images/attractionsLogo.png",
+//        "url":"attraction"
+//        },{
+//        "id":4,
+//        "name":"Transportation",
+//        "logo":"",
+//        "url":"transportation"
+//        },{
+//        "id":5,
+//        "name":"Shopping",
+//        "logo":"",
+//        "url":"shopping"
+//        },{
+//        "id":6,
+//        "name":"Night Life",
+//        "logo":"",
+//        "url":"nightlife"
+//        }]';
+
+    $json = file_get_contents('http://theplayatimes.com/welcome/api/v1/listing_categories');
+    echo $json;
 }
 
 function getRestaurants() {

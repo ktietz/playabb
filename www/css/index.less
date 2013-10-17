@@ -148,39 +148,43 @@ html, body, #map-canvas {
   overflow-y: auto;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
+}
+
+.overthrow{
   height: 100% - 15em; // TODO: this isn't the best way to make sure stuff doesn't get cut off. Just the quickest.
+//  height: inherit;
 }
 
 li>a.tappable-active {
   color: #fff;
   background-color: #4286f5;
 }
-
-.page {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  -webkit-transform:translate3d(0,0,0);
-}
-
-.stage-center {
-  top: 0;
-  left: 0;
-}
-
-.stage-left {
-  left: -100%;
-}
-
-.stage-right {
-  left: 100%;
-}
-
-.transition {
-  -moz-transition-duration: .375s;
-  -webkit-transition-duration: .375s;
-  -o-transition-duration: .375s;
-}
+//
+//.page {
+//  position: absolute;
+//  width: 100%;
+//  height: 100%;
+//  -webkit-transform:translate3d(0,0,0);
+//}
+//
+//.stage-center {
+//  top: 0;
+//  left: 0;
+//}
+//
+//.stage-left {
+//  left: -100%;
+//}
+//
+//.stage-right {
+//  left: 100%;
+//}
+//
+//.transition {
+//  -moz-transition-duration: .375s;
+//  -webkit-transition-duration: .375s;
+//  -o-transition-duration: .375s;
+//}
 
 
 // Clearfix ----------------------------------------
@@ -286,13 +290,15 @@ ul {
   padding: 0;
   margin: 0;
 
-  a{
-    text-decoration: none;
-    color: #575757;
-  }
 
   // the main list items
   li{
+    a{
+      text-decoration: none;
+      color: #575757;
+      width: 100%;
+      height: 100%;
+    }
     font-size: 1.5em;
   }
 
@@ -303,14 +309,39 @@ ul {
   }
 }
 
+// Styles for main lists ------------------------------------------------------------------------------------------------
 .itemList {
+
+  .featured{
+    background-color: #ffac94;
+  }
+
+  .nonfeatured{
+//    max-height: 3em;
+//    float: left;
+//    .logo{
+//      img{
+//        max-height: 3em;
+//      }
+//      visibility: hidden;
+//      position: absolute;
+//      left: -100em;
+//      width: 0%;
+//    }
+//    .itemInfo{
+//      width: 100%;
+//
+//      .description{
+//  //      visibility: hidden;
+//        max-height: 1.2em;
+//      }
+//    }
+  }
 
   a {
     color: @textColor;
     text-decoration: none;
   }
-
-
 
   .logo{
     float: left;
@@ -321,12 +352,6 @@ ul {
       width: 100%;
     }
 
-  }
-
-  .hidden { // info not available, so hide it
-    visibility: hidden;
-//    margin-left: -300%;
-    height: 2em;
   }
 
   .itemInfo {
@@ -366,62 +391,67 @@ ul {
       margin: 0 0.5em -0.1em 0;
     }
   }
+
+  .hidden { // info not available, so hide it
+    visibility: hidden;
+    //    height: 2em;
+  }
 }
-
-
-
 
 .itemView{
   padding: 0.5em 0.5em 0 0;
 
-  .infoPiece {
-    display: inline-block;
-    margin: 0 0 0.5em 1.1em;
-    word-break:break-all;
-    .text{
-      font-size: @itemInfo;
-      float: right;
-      max-width: 83%;
-//      word-break:break-all;
-    }
-    img {
-      float: left;
-//      max-width: 1em;
-    }
-  }
-
   .logo{
-    float: left;
-    width: 28%;
+    float: right;
     max-width: 15em;
-    margin-right: 0.7em;
-    margin-bottom: 0.7em;
     img{
       width: 100%;
     }
   }
 
+  .website .email .address{
+    word-break:break-all;
+  }
+  .infoPiece {
+    margin: 0 0 0.5em 1.1em;
+    display: inline-block;
+    float: left;
+    width: 100%;
+    min-height: 1em;
+    .text{
+      font-size: @itemInfo;
+      float: left;
+      max-width: 83%;
+      word-break:break-all;
+    }
+    .icon{
+      float: left;
+      min-width: 2.5em;
+      img {
+        float: left;
+        max-width: 1.5em;
+        max-height: 1.2em;
+      }
+    }
+  }
   .itemInfo {
-    width: 66%;
-    float: right;
+//    width: 66%;
+//    float: right;
 
 //    vertical-align: middle;
+
 
     .itemName {
       font-size: @itemTitle;
       margin: 0 0 0.3em 0.3em;
     }
 
-    img{
-      max-width: 1.3em;
-      max-height: 1.3em;
-      margin: 0 0.7em -0.1em 0;
-    }
+
   }
 
   .address{
     .text{
-      float: right;
+      float: left;
       width: 87%;
     }
     img{
@@ -443,6 +473,9 @@ ul {
   // info not available, so hide it
   .hidden{
     visibility: hidden;
+    position: absolute;
+    left: -1000em;
+    width: 0%;
   }
 }
 
@@ -455,6 +488,9 @@ ul {
 
 
 
+
+
+// Styles for pageslider ------------------------------------------------------------------------------------------------
 #container {
   position: absolute;
   width: 100%;
