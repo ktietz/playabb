@@ -16,8 +16,8 @@ $app->get('/:id', function($id){
 
 $app->run();
 
-function getData() {
-    $json = file_get_contents('http://theplayatimes.com/welcome/api/v1/listings//true.json');
+function getData($id) {
+    $json = file_get_contents('http://theplayatimes.com/welcome/api/v1/listings/' . $id . '/true.json');
     echo $json;
 }
 
