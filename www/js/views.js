@@ -65,10 +65,10 @@ App.GenericListItemView = Backbone.Marionette.ItemView.extend({
     onRender: function() {
         this.ui.link[0].href = window.location.hash + '/' + this.model.id;
         App.HideBlankListItemInformation(this);
-//        if (this.model.get('featured') = 'true'){
-//            this.removeClass('nonfeatured');
-//            this.addClass('featured');
-//        }
+        if (this.model.get('featured') === true){
+            this.$el.removeClass('nonfeatured');
+            this.$el.addClass('featured');
+        }
     }
 });
 

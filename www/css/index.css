@@ -226,7 +226,7 @@ ul li {
 .itemList .itemInfo .description {
   overflow: hidden;
   text-overflow: ellipsis;
-  max-height: 3.6em;
+  max-height: 3.65em;
 }
 .itemList .itemInfo img {
   max-width: 1.3em;
