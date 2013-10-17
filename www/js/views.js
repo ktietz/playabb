@@ -202,6 +202,13 @@ App.AttractionInfoView = Backbone.Marionette.ItemView.extend({
 });
 
 
+// Error view ------------------------------------------------------------------------------------------------
+App.ErrorView = Backbone.Marionette.ItemView.extend({
+   template: '#nodata-tpl',
+    className: 'errorMessage'
+});
+
+
 })();
 
 

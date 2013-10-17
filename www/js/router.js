@@ -47,6 +47,9 @@ App.AppRouter = Backbone.Marionette.AppRouter.extend({
                     App.router._addAppRoute(self, item.get('url'), 'listView');
                     App.router._addAppRoute(self, item.get('url') + '/:id', 'itemView');
                 });
+            },
+            error: function() {
+                self.nodata(self);
             }
         });
     },
@@ -69,6 +72,9 @@ App.AppRouter = Backbone.Marionette.AppRouter.extend({
                 }));
 
                 self.slider.slidePage(self.dynamicView.$el);
+            },
+            error: function() {
+                self.nodata(self);
             }
         });
     },
@@ -88,80 +94,93 @@ App.AppRouter = Backbone.Marionette.AppRouter.extend({
         self.slider.slidePage(self.view.$el);
     },
 
-    restaurants: function(){
-        var self = this;
-        self.restaurantsList = new App.RestaurantsCollection();
-        self.restaurantsList.fetch({
-            success: function() {
-                self.restaurantsView = new App.Layout();
-                self.restaurantsView.render();
 
-                self.restaurantsView.header.show(new App.HeaderView());
-                self.restaurantsView.content.show(new App.RestaurantsListView({
-                    collection : self.restaurantsList,
-                    itemView : App.RestaurantListItemView
-                }));
 
-                self.slider.slidePage(self.restaurantsView.$el);
-            }
-        });
-    },
+    nodata: function(passedView) {
+        passedView.view = new App.Layout();
+        passedView.view.render();
 
-    restaurant: function(id) {
-        var self = this;
+        passedView.view.header.show(new App.MainMenuHeaderView());
+        passedView.view.content.show(new App.ErrorView());
 
-        self.restaurantItem = self.restaurantsList.get(id);
-        self.restaurantView = new App.Layout();
-        self.restaurantView.render();
+        passedView.slider.slidePage(passedView.view.$el);
 
-        self.restaurantView.header.show(new App.HeaderView());
-        self.restaurantView.content.show(new App.RestaurantInfoView({
-            model : self.restaurantItem
-        }));
-
-        self.slider.slidePage(self.restaurantView.$el);
-    },
-
-    accommodations: function(){
-        var self = this;
-        self.accommodationsList= new App.AccommodationsCollection();
-        self.accommodationsList.fetch({
-            success: function() {
-                self.accommodationsView = new App.Layout();
-                self.accommodationsView.render();
-
-                self.accommodationsView.header.show(new App.HeaderView());
-                self.accommodationsView.content.show(new App.RestaurantsListView({
-                    collection : self.accommodationsList,
-                    itemView : App.AccommodationsListItemView
-                }));
-
-                self.slider.slidePage(self.accommodationsView.$el);
-            },
-            failure: function(){
-                console.log('Could not get data for accommodations.');
-            }
-        });
-    },
-
-    attractions: function(){
-        var self = this;
-        self.attractionsList= new App.AttractionsCollection();
-        self.attractionsList.fetch({
-            success: function() {
-                self.attractionsView = new App.Layout();
-                self.attractionsView.render();
-
-                self.attractionsView.header.show(new App.HeaderView());
-                self.attractionsView.content.show(new App.RestaurantsListView({
-                    collection : self.attractionsList,
-                    itemView : App.AttractionsListItemView
-                }));
-
-                self.slider.slidePage(self.attractionsView.$el);
-            }
-        });
     }
+
+//    restaurant: function(id) {
+//        var self = this;
+//
+//        self.restaurantItem = self.restaurantsList.get(id);
+//        self.restaurantView = new App.Layout();
+//        self.restaurantView.render();
+//
+//        self.restaurantView.header.show(new App.HeaderView());
+//        self.restaurantView.content.show(new App.RestaurantInfoView({
+//            model : self.restaurantItem
+//        }));
+//
+//        self.slider.slidePage(self.restaurantView.$el);
+//    },
+
+//    restaurants: function(){
+//        var self = this;
+//        self.restaurantsList = new App.RestaurantsCollection();
+//        self.restaurantsList.fetch({
+//            success: function() {
+//                self.restaurantsView = new App.Layout();
+//                self.restaurantsView.render();
+//
+//                self.restaurantsView.header.show(new App.HeaderView());
+//                self.restaurantsView.content.show(new App.RestaurantsListView({
+//                    collection : self.restaurantsList,
+//                    itemView : App.RestaurantListItemView
+//                }));
+//
+//                self.slider.slidePage(self.restaurantsView.$el);
+//            }
+//        });
+//    },
+//
+//    accommodations: function(){
+//        var self = this;
+//        self.accommodationsList= new App.AccommodationsCollection();
+//        self.accommodationsList.fetch({
+//            success: function() {
+//                self.accommodationsView = new App.Layout();
+//                self.accommodationsView.render();
+//
+//                self.accommodationsView.header.show(new App.HeaderView());
+//                self.accommodationsView.content.show(new App.RestaurantsListView({
+//                    collection : self.accommodationsList,
+//                    itemView : App.AccommodationsListItemView
+//                }));
+//
+//                self.slider.slidePage(self.accommodationsView.$el);
+//            },
+//            error: function(){
+//                console.log('Could not get data for accommodations.');
+//            }
+//        });
+//    },
+//
+//    attractions: function(){
+//        var self = this;
+//        self.attractionsList= new App.AttractionsCollection();
+//        self.attractionsList.fetch({
+//            success: function() {
+//                self.attractionsView = new App.Layout();
+//                self.attractionsView.render();
+//
+//                self.attractionsView.header.show(new App.HeaderView());
+//                self.attractionsView.content.show(new App.RestaurantsListView({
+//                    collection : self.attractionsList,
+//                    itemView : App.AttractionsListItemView
+//                }));
+//
+//                self.slider.slidePage(self.attractionsView.$el);
+//            }
+//        });
+//    }
 });
 
 })();

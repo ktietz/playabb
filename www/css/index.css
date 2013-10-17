@@ -176,6 +176,10 @@ header .themeColor3 {
   width: 100%;
   overflow: auto;
 }
+.errorMessage {
+  font-size: 1.5em;
+  padding: 0 1em 0 1em;
+}
 ul {
   margin: 0;
   padding: 0;
