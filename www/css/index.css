@@ -228,7 +228,7 @@ ul li {
 .itemList .itemInfo {
   width: 72%;
   float: left;
-  font-size: 1em;
+  font-size: 0.8em;
   vertical-align: middle;
 }
 .itemList .itemInfo .itemName {
@@ -249,25 +249,26 @@ ul li {
   margin: 0 0.5em -0.1em 0;
 }
 .itemView {
-  padding: 0 0.5em 0 0;
+  padding: 0.5em 0.5em 0 0;
 }
 .itemView .infoPiece {
-  display: inline-table;
+  display: inline-block;
   margin: 0 0 0.5em 1.1em;
 }
 .itemView .infoPiece .text {
+  font-size: 0.8em;
   float: right;
-  word-wrap: break-word;
+  max-width: 88%;
 }
 .itemView .infoPiece img {
   float: left;
 }
-.itemView .hidden {
-  visibility: hidden;
+.itemView .website {
+  word-wrap: break-word;
 }
 .itemView .logo {
-  float: right;
-  width: 30%;
+  float: left;
+  width: 28%;
   max-width: 15em;
   margin-right: 0.7em;
   margin-bottom: 0.7em;
@@ -276,9 +277,8 @@ ul li {
   width: 100%;
 }
 .itemView .itemInfo {
-  width: 70%;
-  font-size: 1em;
-  vertical-align: middle;
+  width: 69%;
+  float: right;
 }
 .itemView .itemInfo .itemName {
   font-size: 1.5em;
@@ -303,6 +303,9 @@ ul li {
   display: inline-block;
   position: relative;
   padding-top: 1em;
+}
+.itemView .hidden {
+  visibility: hidden;
 }
 #container {
   position: absolute;

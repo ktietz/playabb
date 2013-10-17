@@ -208,7 +208,7 @@ li>a.tappable-active {
 @textColor: #575757;
 
 @itemTitle: 1.5em;
-@itemInfo: 1em;
+@itemInfo: 0.8em;
 
 
 // Main styles --------------------------------------
@@ -367,32 +367,35 @@ ul {
   }
 }
 
+
+
+
 .itemView{
-  padding: 0 0.5em 0 0;
+  padding: 0.5em 0.5em 0 0;
+
   .infoPiece {
-    display: inline-table;
+    display: inline-block;
     margin: 0 0 0.5em 1.1em;
     .text{
+      font-size: @itemInfo;
       float: right;
-      word-wrap: break-word;
+      max-width: 88%;
+//      word-break:break-all;
     }
     img {
       float: left;
+//      max-width: 1em;
     }
   }
 
-  .hidden{ // info not available, so hide it
-    visibility: hidden;
-//    position: absolute;
-    img{
-//      position: absolute;
-//      width: 0px;
-    }
+  .website{
+//    word-break:break-all;
+    word-wrap: break-word;
   }
 
   .logo{
-    float: right;
-    width: 30%;
+    float: left;
+    width: 28%;
     max-width: 15em;
     margin-right: 0.7em;
     margin-bottom: 0.7em;
@@ -402,11 +405,10 @@ ul {
   }
 
   .itemInfo {
-    width: 70%;
-//    float: left;
-    font-size: @itemInfo;
-    vertical-align: middle;
+    width: 69%;
+    float: right;
 
+//    vertical-align: middle;
 
     .itemName {
       font-size: @itemTitle;
@@ -439,6 +441,11 @@ ul {
     padding-top: 1em;
   }
 
+
+  // info not available, so hide it
+  .hidden{
+    visibility: hidden;
+  }
 }
 
 
