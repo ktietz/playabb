@@ -20,8 +20,8 @@ App.HomeView = Backbone.Marionette.CollectionView.extend({
 
 App.MenuListItemView = Backbone.Marionette.ItemView.extend({
     template:'#menu-li-tpl',
-    tagName: 'li',
-    className: 'clearfix'
+    tagName: 'li'
+//    className: 'clearfix'
 });
 
 App.Layout = Backbone.Marionette.Layout.extend({
