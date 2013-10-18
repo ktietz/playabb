@@ -198,7 +198,6 @@ ul li {
   background-color: #ffffff;
 }
 .itemList .nonfeatured {
-  max-height: 3em;
   float: left;
 }
 .itemList .nonfeatured .logo {
@@ -207,14 +206,12 @@ ul li {
   left: -100em;
   width: 0%;
 }
-.itemList .nonfeatured .logo img {
-  max-height: 3em;
-}
 .itemList .nonfeatured .itemInfo {
   width: 100%;
 }
 .itemList .nonfeatured .itemInfo .description {
   max-height: 1.2em;
+  word-break: break-all;
 }
 .itemList a {
   color: #575757;
