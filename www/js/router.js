@@ -31,7 +31,7 @@ App.AppRouter = Backbone.Marionette.AppRouter.extend({
         self.menuList = new App.MenuCollection();
         self.menuList.fetch({
             success: function(){
-                self.homeView = new App.Layout();
+                self.homeView = new App.MainMenuLayout();
                 self.homeView.render();
 
                 self.homeView.header.show(new App.MainMenuHeaderView());

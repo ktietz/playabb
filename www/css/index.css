@@ -150,6 +150,13 @@ header .themeColor2 {
 header .themeColor3 {
   color: #143b54;
 }
+#masthead {
+  max-height: 5em;
+  overflow: hidden;
+}
+#masthead img {
+  width: 100%;
+}
 #wrapper {
   display: block;
   position: absolute;

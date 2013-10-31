@@ -32,6 +32,15 @@ App.Layout = Backbone.Marionette.Layout.extend({
     }
 });
 
+App.MainMenuLayout = Backbone.Marionette.Layout.extend({
+    template: '#menu-layout-tpl',
+    regions: {
+        header : 'header',
+        image: '#masthead',
+        content : '#stuff'
+    }
+});
+
 App.HeaderView = Backbone.Marionette.ItemView.extend({
     template: '#header-tpl',
     events: {
@@ -84,6 +93,7 @@ App.GenericInfoView = Backbone.Marionette.ItemView.extend({
     },
     onRender: function(){
         App.HideBlankInformation(this);
+//        this.ui.website.on('click', function(){window.open(this.ui.website[0].innerText, '_system');});
     }
 });
 
@@ -120,97 +130,6 @@ App.HideBlankListItemInformation = function(view) {
         view.ui.description.addClass('hidden');
     }
 };
-
-//
-//// Restaurants --------------------------------------------------------
-//App.RestaurantsListView = Backbone.Marionette.CollectionView.extend({
-//    itemView : App.RestaurantListItemView,
-//    tagName: 'ul',
-//    className: 'restaurantList itemList'
-//});
-//
-//App.RestaurantListItemView = Backbone.Marionette.ItemView.extend({
-//    template: '#restaurant-li-tpl',
-//    tagName: 'li',
-//    className: 'clearfix',
-//    ui: {
-//        logo : '.logo',
-//        description : '.description'
-//    },
-//    onRender: function() {
-//        App.HideBlankListItemInformation(this);
-//    }
-//});
-//
-//App.RestaurantInfoView = Backbone.Marionette.ItemView.extend({
-//    template: '#restaurant-page-tpl',
-//    className: 'overthrow',
-//    ui: {
-//        phone : '.phone',
-//        email : '.email',
-//        website : '.website',
-//        address : '.address',
-//        logo : '.logo'
-//    },
-//    onRender: function(){
-//       App.HideBlankInformation(this);
-//    }
-//});
-
-//// Accommodations --------------------------------------------------------
-//App.AccommodationsListView = Backbone.Marionette.CollectionView.extend({
-//    itemView : App.AccommodationsListItemView,
-//    tagName: 'ul',
-//    className: 'accommodationsList itemList'
-//});
-//
-//App.AccommodationsListItemView = Backbone.Marionette.ItemView.extend({
-//    template: '#accommodation-li-tpl',
-//    tagName: 'li',
-//    className: 'clearfix'
-//});
-//
-//App.AccommodationInfoView = Backbone.Marionette.ItemView.extend({
-//    template: '#accommodation-page-tpl',
-//    ui: {
-//        phone : '.phone',
-//        email : '.email',
-//        website : '.website',
-//        address : '.address'
-//    },
-//    onRender: function(){
-//        App.HideBlankInformation(this);
-//    }
-//});
-//
-//
-//// Attractions --------------------------------------------------------
-//App.AttractionsListView = Backbone.Marionette.CollectionView.extend({
-//    itemView : App.AttractionsListItemView,
-//    tagName: 'ul',
-//    className: 'attractionsList itemList'
-//});
-//
-//App.AttractionsListItemView = Backbone.Marionette.ItemView.extend({
-//    template: '#attraction-li-tpl',
-//    tagName: 'li',
-//    className: 'clearfix'
-//});
-//
-//App.AttractionInfoView = Backbone.Marionette.ItemView.extend({
-//    template: '#attraction-page-tpl',
-//    ui: {
-//        phone : '.phone',
-//        email : '.email',
-//        website : '.website',
-//        address : '.address'
-//    },
-//    onRender: function(){
-//        App.HideBlankInformation(this);
-//    }
-//});
-
-
 
 })();
 

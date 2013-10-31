@@ -24,6 +24,14 @@
     <!--</section>-->
 </script>
 
+<script id="menu-layout-tpl" type="text/template">
+    <!--<section>-->
+        <header></header>
+        <div id="masthead"><img src='img/BusinessCardBackHigh.png'></div>
+        <div id="stuff" class="overthrow"></div>
+    <!--</section>-->
+</script>
+
 <script id="header-tpl" type="text/template">
     <div class="back">
         <img src="img/backButton.png" alt="Back"/>
@@ -89,19 +97,16 @@
             </div>
             <div class="infoPiece website">
                 <div class="icon"><img src="img/web.png" alt=""/></div>
-                <div class="text"><%= website %></div>
+                <div class="text"><a href="<%= website %>"><%= website %></a></div>
             </div>
             <div class="infoPiece address">
                 <div class="icon"><img src="img/mapPin.png" alt=""/></img></div>
-                <div class="text"><%= address %></div>
+                <div class="text"><a href="geo:38.897096,-77.036545"><%= address %></a></div>
             </div>
         </div>
         <div class="infoPiece description"><p><%= description %></p></div>
     </div>
 </script>
-
-
-
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
