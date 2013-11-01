@@ -94,7 +94,7 @@ App.GenericInfoView = Backbone.Marionette.ItemView.extend({
     },
     onRender: function(){
         App.HideBlankInformation(this);
-        if (this.model.get('featured') === false){
+        if (this.model.get('featured') !== true){
             this.ui.buttons.addClass('hidden');
         }
 //        this.ui.website.on('click', function(){window.open(this.ui.website[0].innerText, '_system');});
@@ -124,6 +124,7 @@ App.HideBlankInformation = function(view) {
     if (view.model.get('logo') === ""){
         view.ui.logo.addClass('hidden');
     }
+
 };
 
 App.HideBlankListItemInformation = function(view) {
