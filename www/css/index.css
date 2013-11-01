@@ -33,14 +33,6 @@ body {
   width: 100%;
 }
 /* Landscape layout (with min-width) */
-h1 {
-  font-size: 24px;
-  font-weight: normal;
-  margin: 0px;
-  overflow: visible;
-  padding: 0px;
-  text-align: center;
-}
 .event {
   border-radius: 4px;
   -webkit-border-radius: 4px;
