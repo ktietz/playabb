@@ -19,11 +19,11 @@ App.AppRouter = Backbone.Marionette.AppRouter.extend({
     },
 
     initialize: function() {
-        var self = this;
-        self.slider = new PageSlider($("#container"));
+//        var self = this;
+//        self.slider = new PageSlider($("#container"));
 
-        App.layout = new App.Layout();
-        App.layout.render();
+//        App.layout = new App.Layout();
+//        App.layout.render();
     },
 
     home: function() {
@@ -32,15 +32,9 @@ App.AppRouter = Backbone.Marionette.AppRouter.extend({
         self.menuList.fetch({
             success: function(){
                 self.homeView = new App.MainMenuLayout();
-                self.homeView.render();
-
-                self.homeView.header.show(new App.MainMenuHeaderView());
-                self.homeView.content.show(new App.HomeView({
-                    collection : self.menuList,
-                    itemView : App.MenuListItemView
-                }));
-
-                self.slider.slidePage(self.homeView.$el);
+//                self.slider.slidePage(self.homeView.$el);
+                console.log('testing12');
+                self.changePage(self.homeView, self.menuList);
 
                 // Add a route for each item that was added to the main menu.
                 self.menuList.each(function(item){
@@ -52,6 +46,27 @@ App.AppRouter = Backbone.Marionette.AppRouter.extend({
                 self.nodatahome(self);
             }
         });
+    },
+
+    changePage: function (page, data) {
+        $(page.el).attr('data-role', 'page');
+        page.render();
+//        self.homeView.render();
+
+        page.header.show(new App.MainMenuHeaderView());
+        page.content.show(new App.HomeView({
+            collection : self.menuList,
+            itemView : App.MenuListItemView
+        }));
+
+        $('body').append($(page.el));
+//        var transition = $.mobile.defaultPageTransition;
+        // We don't want to slide the first page
+        if (this.firstPage) {
+            transition = 'none';
+            this.firstPage = false;
+        }
+        $.mobile.changePage($(page.el), {changeHash:false});
     },
 
     listView: function() {
@@ -118,81 +133,6 @@ App.AppRouter = Backbone.Marionette.AppRouter.extend({
         passedView.slider.slidePage(passedView.view.$el);
 
     }
-
-//    restaurant: function(id) {
-//        var self = this;
-//
-//        self.restaurantItem = self.restaurantsList.get(id);
-//        self.restaurantView = new App.Layout();
-//        self.restaurantView.render();
-//
-//        self.restaurantView.header.show(new App.HeaderView());
-//        self.restaurantView.content.show(new App.RestaurantInfoView({
-//            model : self.restaurantItem
-//        }));
-//
-//        self.slider.slidePage(self.restaurantView.$el);
-//    },
-
-//    restaurants: function(){
-//        var self = this;
-//        self.restaurantsList = new App.RestaurantsCollection();
-//        self.restaurantsList.fetch({
-//            success: function() {
-//                self.restaurantsView = new App.Layout();
-//                self.restaurantsView.render();
-//
-//                self.restaurantsView.header.show(new App.HeaderView());
-//                self.restaurantsView.content.show(new App.RestaurantsListView({
-//                    collection : self.restaurantsList,
-//                    itemView : App.RestaurantListItemView
-//                }));
-//
-//                self.slider.slidePage(self.restaurantsView.$el);
-//            }
-//        });
-//    },
-//
-//    accommodations: function(){
-//        var self = this;
-//        self.accommodationsList= new App.AccommodationsCollection();
-//        self.accommodationsList.fetch({
-//            success: function() {
-//                self.accommodationsView = new App.Layout();
-//                self.accommodationsView.render();
-//
-//                self.accommodationsView.header.show(new App.HeaderView());
-//                self.accommodationsView.content.show(new App.RestaurantsListView({
-//                    collection : self.accommodationsList,
-//                    itemView : App.AccommodationsListItemView
-//                }));
-//
-//                self.slider.slidePage(self.accommodationsView.$el);
-//            },
-//            error: function(){
-//                console.log('Could not get data for accommodations.');
-//            }
-//        });
-//    },
-//
-//    attractions: function(){
-//        var self = this;
-//        self.attractionsList= new App.AttractionsCollection();
-//        self.attractionsList.fetch({
-//            success: function() {
-//                self.attractionsView = new App.Layout();
-//                self.attractionsView.render();
-//
-//                self.attractionsView.header.show(new App.HeaderView());
-//                self.attractionsView.content.show(new App.RestaurantsListView({
-//                    collection : self.attractionsList,
-//                    itemView : App.AttractionsListItemView
-//                }));
-//
-//                self.slider.slidePage(self.attractionsView.$el);
-//            }
-//        });
-//    }
 });
 
 })();
