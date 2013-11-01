@@ -89,10 +89,14 @@ App.GenericInfoView = Backbone.Marionette.ItemView.extend({
         email : '.email',
         website : '.website',
         address : '.address',
-        logo : '.logo'
+        logo : '.logo',
+        buttons : '.buttons'
     },
     onRender: function(){
         App.HideBlankInformation(this);
+        if (this.model.get('featured') === false){
+            this.ui.buttons.addClass('hidden');
+        }
 //        this.ui.website.on('click', function(){window.open(this.ui.website[0].innerText, '_system');});
     }
 });

@@ -205,6 +205,7 @@ ul li {
   background-color: #ffffff;
 }
 .itemList .nonfeatured {
+  max-height: 3.2em;
   float: left;
 }
 .itemList .nonfeatured .logo {
@@ -242,6 +243,8 @@ ul li {
 .itemList .itemInfo .itemName {
   font-size: 1.5em;
   margin: 0 0 0.3em 0.3em;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .itemList .itemInfo .infoPiece {
   margin: 0 0 0.5em 0.7em;
@@ -256,15 +259,70 @@ ul li {
   max-height: 1.3em;
   margin: 0 0.5em -0.1em 0;
 }
+.itemList li {
+  position: relative;
+}
+.itemList li .forwardArrow {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 3em;
+  /* fallback */
+
+  /* Safari 4-5, Chrome 1-9 */
+
+  background: -webkit-gradient(linear, left top, right top, from(rgba(225, 225, 225, 0)), to(#e1e1e1));
+  /* Safari 5.1, Chrome 10+ */
+
+  background: -webkit-linear-gradient(left, rgba(225, 225, 225, 0), #e1e1e1);
+  /* Firefox 3.6+ */
+
+  background: -moz-linear-gradient(left, rgba(239, 239, 239, 0) 0%, #efefef 40%);
+  /* IE 10 */
+
+  background: -ms-linear-gradient(left, #e1e1e1, #ffffff);
+  /* Opera 11.10+ */
+
+  background: -o-linear-gradient(left, #e1e1e1, #ffffff);
+}
+.itemList li .forwardArrow img {
+  margin-top: 0.35em;
+  right: 0.4em;
+  position: absolute;
+  opacity: 0.5;
+}
 .itemList .hidden {
   visibility: hidden;
 }
 .itemView {
-  padding: 0.5em 0.5em 0 0;
+  font-size: 1.2em;
+  overflow: hidden;
+  padding-right: 1.5em;
+}
+.itemView .buttons {
+  font-size: 0.7em;
+  float: left;
+  width: 100%;
+  margin-left: 1em;
+}
+.itemView .buttons .infoBtn {
+  background-color: #009ec2;
+  float: left;
+  padding: 0.5em 0.9em 0.5em 0.9em;
+  margin: 0.3em 0.2em 0.3em 0.2em;
+}
+.itemView .buttons .infoBtn a {
+  text-decoration: none;
+  color: #efefef;
 }
 .itemView .logo {
   float: right;
   max-width: 15em;
+  position: relative;
+  height: 100%;
+  right: -1.5em;
+  border: 1px solid #eee;
 }
 .itemView .logo img {
   width: 100%;
@@ -273,11 +331,16 @@ ul li {
   word-break: break-all;
 }
 .itemView .infoPiece {
-  margin: 0 0 0.5em 1.1em;
+  margin: 0 0.5em 0.5em 1.1em;
   display: inline-block;
   float: left;
   width: 100%;
-  min-height: 1em;
+  min-height: 2em;
+  vertical-align: middle;
+}
+.itemView .infoPiece a {
+  text-decoration: none;
+  color: #575757;
 }
 .itemView .infoPiece .text {
   font-size: 0.8em;
@@ -287,7 +350,7 @@ ul li {
 }
 .itemView .infoPiece .icon {
   float: left;
-  min-width: 2.5em;
+  min-width: 2em;
 }
 .itemView .infoPiece .icon img {
   float: left;
@@ -296,7 +359,8 @@ ul li {
 }
 .itemView .itemInfo .itemName {
   font-size: 1.5em;
-  margin: 0 0 0.3em 0.3em;
+  margin: 0.5em 0 0.3em 0.5em;
+  width: 100%;
 }
 .itemView .address .text {
   float: left;
@@ -313,6 +377,7 @@ ul li {
   display: inline-block;
   position: relative;
   padding-top: 1em;
+  margin-right: 0.5em;
 }
 .itemView .hidden {
   visibility: hidden;
