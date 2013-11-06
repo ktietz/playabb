@@ -213,6 +213,23 @@ ul li {
 .itemList .featured {
   background-color: #ffffff;
 }
+.itemList .featured .forwardArrow {
+  /* Safari 4-5, Chrome 1-9 */
+
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(40%, #ffffff), color-stop(100%, #ffffff));
+  /* Safari 5.1, Chrome 10+ */
+
+  background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, #ffffff 40%);
+  /* Firefox 3.6+ */
+
+  background: -moz-linear-gradient(left, rgba(255, 255, 255, 0) 0%, #ffffff 40%);
+  /* IE 10 */
+
+  background: -ms-linear-gradient(left, rgba(255, 255, 255, 0) 0%, #ffffff 40%);
+  /* Opera 11.10+ */
+
+  background: -o-linear-gradient(left, rgba(255, 255, 255, 0) 0%, #ffffff 40%);
+}
 .itemList .nonfeatured {
   max-height: 3.2em;
   float: left;
@@ -229,6 +246,23 @@ ul li {
 .itemList .nonfeatured .itemInfo .description {
   max-height: 1.2em;
   word-break: break-all;
+}
+.itemList .nonfeatured .forwardArrow {
+  /* Safari 4-5, Chrome 1-9 */
+
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(239, 239, 239, 0)), color-stop(40%, #efefef), color-stop(100%, #efefef));
+  /* Safari 5.1, Chrome 10+ */
+
+  background: -webkit-linear-gradient(left, rgba(239, 239, 239, 0) 0%, #efefef 40%);
+  /* Firefox 3.6+ */
+
+  background: -moz-linear-gradient(left, rgba(239, 239, 239, 0) 0%, #efefef 40%);
+  /* IE 10 */
+
+  background: -ms-linear-gradient(left, rgba(239, 239, 239, 0) 0%, #efefef 40%);
+  /* Opera 11.10+ */
+
+  background: -o-linear-gradient(left, rgba(239, 239, 239, 0) 0%, #efefef 40%);
 }
 .itemList a {
   color: #575757;
@@ -279,21 +313,6 @@ ul li {
   width: 3em;
   /* fallback */
 
-  /* Safari 4-5, Chrome 1-9 */
-
-  background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(239, 239, 239, 0)), color-stop(40%, #efefef), color-stop(100%, #efefef));
-  /* Safari 5.1, Chrome 10+ */
-
-  background: -webkit-linear-gradient(left, rgba(239, 239, 239, 0) 0%, #efefef 40%);
-  /* Firefox 3.6+ */
-
-  background: -moz-linear-gradient(left, rgba(239, 239, 239, 0) 0%, #efefef 40%);
-  /* IE 10 */
-
-  background: -ms-linear-gradient(left, rgba(239, 239, 239, 0) 0%, #efefef 40%);
-  /* Opera 11.10+ */
-
-  background: -o-linear-gradient(left, rgba(239, 239, 239, 0) 0%, #efefef 40%);
 }
 .itemList li .forwardArrow img {
   margin-top: 0.35em;
