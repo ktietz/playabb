@@ -100,8 +100,19 @@ body,
   left: 0px;
   right: 0px;
 }
+.scrollMainMenu {
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: hidden;
+  position: absolute;
+  top: 60px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  top: 140px;
+}
 .overthrow-enabled .overthrow {
-  overflow-y: auto;
+  overflow-y: scroll;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
 }
@@ -376,6 +387,13 @@ ul li {
   position: relative;
   padding-top: 1em;
   margin-right: 0.5em;
+}
+.itemView #pictures {
+  margin-left: 1em;
+}
+.itemView #pictures .picture img {
+  width: 100%;
+  max-width: 400px;
 }
 .itemView .hidden {
   visibility: hidden;

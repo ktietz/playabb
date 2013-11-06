@@ -84,13 +84,32 @@ App.AppRouter = Backbone.Marionette.AppRouter.extend({
         var self = this;
 
         self.itemData = self.collection.get(id);
-        self.view = new App.Layout();
+        self.view = new App.InfoLayout();
         self.view.render();
 
         self.view.header.show(new App.HeaderView());
         self.view.content.show(new App.GenericInfoView({
             model : self.itemData
         }));
+
+
+//        if (self.itemData.attributes.featured === true){
+        /* Get images from the item's images attribute. Loop through them and put each individual one in a model.
+         Then add that model to the collection so it can be passed to the view. */
+        self.picturesArray = new Array;
+        self.picturesCollection = new App.PicturesCollection();
+        // Loop through array of pictures
+        _.each(self.itemData.attributes.images, function(image){
+            // Create a new model out of the picture and Add it to the collection
+            var picture = new App.PictureModel({url : image});
+            self.picturesCollection.add(picture);
+        });
+
+        self.view.pictures.show(new App.PicturesView({
+            collection : self.picturesCollection,
+            itemView : App.PictureView
+        }));
+//        }
 
         self.slider.slidePage(self.view.$el);
     },
@@ -119,80 +138,6 @@ App.AppRouter = Backbone.Marionette.AppRouter.extend({
 
     }
 
-//    restaurant: function(id) {
-//        var self = this;
-//
-//        self.restaurantItem = self.restaurantsList.get(id);
-//        self.restaurantView = new App.Layout();
-//        self.restaurantView.render();
-//
-//        self.restaurantView.header.show(new App.HeaderView());
-//        self.restaurantView.content.show(new App.RestaurantInfoView({
-//            model : self.restaurantItem
-//        }));
-//
-//        self.slider.slidePage(self.restaurantView.$el);
-//    },
-
-//    restaurants: function(){
-//        var self = this;
-//        self.restaurantsList = new App.RestaurantsCollection();
-//        self.restaurantsList.fetch({
-//            success: function() {
-//                self.restaurantsView = new App.Layout();
-//                self.restaurantsView.render();
-//
-//                self.restaurantsView.header.show(new App.HeaderView());
-//                self.restaurantsView.content.show(new App.RestaurantsListView({
-//                    collection : self.restaurantsList,
-//                    itemView : App.RestaurantListItemView
-//                }));
-//
-//                self.slider.slidePage(self.restaurantsView.$el);
-//            }
-//        });
-//    },
-//
-//    accommodations: function(){
-//        var self = this;
-//        self.accommodationsList= new App.AccommodationsCollection();
-//        self.accommodationsList.fetch({
-//            success: function() {
-//                self.accommodationsView = new App.Layout();
-//                self.accommodationsView.render();
-//
-//                self.accommodationsView.header.show(new App.HeaderView());
-//                self.accommodationsView.content.show(new App.RestaurantsListView({
-//                    collection : self.accommodationsList,
-//                    itemView : App.AccommodationsListItemView
-//                }));
-//
-//                self.slider.slidePage(self.accommodationsView.$el);
-//            },
-//            error: function(){
-//                console.log('Could not get data for accommodations.');
-//            }
-//        });
-//    },
-//
-//    attractions: function(){
-//        var self = this;
-//        self.attractionsList= new App.AttractionsCollection();
-//        self.attractionsList.fetch({
-//            success: function() {
-//                self.attractionsView = new App.Layout();
-//                self.attractionsView.render();
-//
-//                self.attractionsView.header.show(new App.HeaderView());
-//                self.attractionsView.content.show(new App.RestaurantsListView({
-//                    collection : self.attractionsList,
-//                    itemView : App.AttractionsListItemView
-//                }));
-//
-//                self.slider.slidePage(self.attractionsView.$el);
-//            }
-//        });
-//    }
 });
 
 })();

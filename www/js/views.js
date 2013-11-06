@@ -9,7 +9,34 @@
  */
 
 
+/* Layouts ---------------------------------------------------------------------------------------- */
+App.Layout = Backbone.Marionette.Layout.extend({
+    template: '#layout-tpl',
+    regions: {
+        header : 'header',
+        content : '#stuff'
+    }
+});
 
+App.InfoLayout = Backbone.Marionette.Layout.extend({
+    template: '#infoLayout-tpl',
+    regions: {
+        header : 'header',
+        content : '#stuff',
+        pictures : '#pictures'
+    }
+});
+
+App.MainMenuLayout = Backbone.Marionette.Layout.extend({
+    template: '#menu-layout-tpl',
+    regions: {
+        header : 'header',
+        image: '#masthead',
+        content : '#stuff'
+    }
+});
+
+/* Main Menu ------------------------------------------------------------------------------------------ */
 
 App.HomeView = Backbone.Marionette.CollectionView.extend({
 //    template: '#home-tpl'
@@ -24,23 +51,8 @@ App.MenuListItemView = Backbone.Marionette.ItemView.extend({
 //    className: 'clearfix'
 });
 
-App.Layout = Backbone.Marionette.Layout.extend({
-    template: '#layout-tpl',
-    regions: {
-        header : 'header',
-        content : '#stuff'
-    }
-});
 
-App.MainMenuLayout = Backbone.Marionette.Layout.extend({
-    template: '#menu-layout-tpl',
-    regions: {
-        header : 'header',
-        image: '#masthead',
-        content : '#stuff'
-    }
-});
-
+// Headers ---------------------------------------------------------------------------------------------
 App.HeaderView = Backbone.Marionette.ItemView.extend({
     template: '#header-tpl',
     events: {
@@ -52,10 +64,10 @@ App.HeaderView = Backbone.Marionette.ItemView.extend({
 });
 
 App.MainMenuHeaderView = Backbone.Marionette.ItemView.extend({
-    template: '#mainMenu-header-tpl',
+    template: '#mainMenu-header-tpl'
 });
 
-// Generic --------------------------------------------------------
+// Generic --------------------------------------------------------------------------------------------
 App.GenericListView = Backbone.Marionette.CollectionView.extend({
     itemView : App.GenericListItemView,
     tagName: 'ul',
@@ -91,23 +103,32 @@ App.GenericInfoView = Backbone.Marionette.ItemView.extend({
         address : '.address',
         logo : '.logo',
         buttons : '.buttons'
+//        pictures : '.pictures'
     },
     onRender: function(){
         App.HideBlankInformation(this);
         if (this.model.get('featured') !== true){
             this.ui.buttons.addClass('hidden');
         }
-//        this.ui.website.on('click', function(){window.open(this.ui.website[0].innerText, '_system');});
     }
 });
 
-// Error view ------------------------------------------------------------------------------------------------
+App.PicturesView = Backbone.Marionette.CollectionView.extend({
+    itemView: App.PictureView,
+});
+
+App.PictureView = Backbone.Marionette.ItemView.extend({
+   template: '#image-tpl',
+   className: 'picture'
+});
+
+// Error views ------------------------------------------------------------------------------------------------
 App.ErrorView = Backbone.Marionette.ItemView.extend({
     template: '#nodata-tpl',
     className: 'errorMessage'
 });
 
-
+// Functions ------------------------------------------------------------------------------------------
 App.HideBlankInformation = function(view) {
     if (view.model.get('telephone') === ""){
         view.ui.phone.addClass('hidden');

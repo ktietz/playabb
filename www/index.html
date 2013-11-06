@@ -25,11 +25,20 @@
     <!--</section>-->
 </script>
 
+<script id="infoLayout-tpl" type="text/template">
+    <!--<section>-->
+    <header></header>
+    <div id="stuff" class="scroll">
+        <div id="pictures"></div>
+    </div>
+    <!--</section>-->
+</script>
+
 <script id="menu-layout-tpl" type="text/template">
     <!--<section>-->
         <header></header>
         <div id="masthead"><img src='img/beach.png'></div>
-        <div id="stuff" class="scroll"></div>
+        <div id="stuff" class="scrollMainMenu"></div>
     <!--</section>-->
 </script>
 
@@ -117,7 +126,12 @@
             <div class="infoBtn"><a href="<%= website %>" data-role="button">Visit Site</a></div>
         </div>
         <div class="infoPiece description"><p><%= description %></p></div>
+        <div id="pictures"></div>
     </div>
+</script>
+
+<script id="image-tpl" type="text/template">
+    <img src="http://theplayatimes.com/<%= url %>" alt=""/>
 </script>
 
 

@@ -145,8 +145,13 @@ html, body, #map-canvas {
   .scroll();
 }
 
+.scrollMainMenu{
+  .scroll();
+  top: 140px;
+}
+
 .overthrow-enabled .overthrow {
-  overflow-y: auto;
+  overflow-y: scroll;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
 }
@@ -271,7 +276,6 @@ ul {
     width: 100%;
   }
 }
-
 
 .mainMenu{
   padding: 0;
@@ -519,6 +523,16 @@ ul {
     margin-right: 0.5em;
   }
 
+  #pictures{
+    margin-left: 1em;
+    .picture{
+//      text-align: center;
+      img{
+        width: 100%;
+        max-width: 400px;
+      }
+    }
+  }
 
   // info not available, so hide it
   .hidden{
@@ -527,6 +541,7 @@ ul {
     left: -1000em;
     width: 0%;
   }
+
 }
 
 
