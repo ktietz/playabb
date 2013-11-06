@@ -38,8 +38,8 @@ App.AppRouter = Backbone.Marionette.AppRouter.extend({
                 // Add a route for each item that was added to the main menu.
                 self.menuList.each(function(item){
                     App.router._addAppRoute(self, item.get('id').toString(), 'listView');
+                    console.log('route id ' + item.get('id').toString());
                     App.router._addAppRoute(self, item.get('id').toString() + '/:id', 'itemView');
-                    console.log(App.router.routes[Backbone.history.fragment] + " " + self);
                 });
             },
             error: function() {
@@ -57,6 +57,9 @@ App.AppRouter = Backbone.Marionette.AppRouter.extend({
 //        self.collection.url(App.getDynamicModelUrl(viewType));
         self.collection.fetch({
             success: function() {
+                if ($('#layout-tpl')){
+                    console.log('yeah');
+                }
                 self.dynamicView = new App.Layout();
 //                self.dynamicView.render();
                 // add the title of the page
@@ -69,6 +72,7 @@ App.AppRouter = Backbone.Marionette.AppRouter.extend({
 //                //self.slider.slidePage(self.dynamicView.$el);
 //                $('.overthrow').height($('.overthrow').height() - 60);
 
+
             },
             error: function() {
                 self.nodataback(self);
@@ -78,6 +82,7 @@ App.AppRouter = Backbone.Marionette.AppRouter.extend({
 
     itemView: function(id) {
         var self = this;
+        console.log('itemview');
 
         self.itemData = self.collection.get(id);
         self.view = new App.Layout();
@@ -135,6 +140,7 @@ App.AppRouter = Backbone.Marionette.AppRouter.extend({
 //            transition = 'none';
 //            this.firstPage = false;
 //        }
+        console.log('testing pre change page');
         $.mobile.changePage($(page.el), {changeHash:false});
 
         $('a').attr('data-ajax', 'false'); // This is here to make the a links work right.
@@ -157,6 +163,7 @@ App.AppRouter = Backbone.Marionette.AppRouter.extend({
         $.mobile.changePage($(page.el), {changeHash:false});
 
         $('a').attr('data-ajax', 'false'); // This is here to make the a links work right.
+//        $('a').attr('rel', 'external'); // This is here to make the a links work right.
 
     },
 
@@ -164,7 +171,10 @@ App.AppRouter = Backbone.Marionette.AppRouter.extend({
         $(page.el).attr('data-role', 'page');
         $(page.el).attr('id', 'now');
 
+        console.log('changepageitem1');
+
         page.render();
+        console.log('changepageitem postrender2');
 
         page.header.show(new App.HeaderView());
         page.content.show(new App.GenericInfoView({
@@ -172,6 +182,7 @@ App.AppRouter = Backbone.Marionette.AppRouter.extend({
         }));
 
         $('body').append($(page.el));
+        console.log('changepageitem postappend 3');
 
         $.mobile.changePage($(page.el), {changeHash:false});
 

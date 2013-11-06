@@ -1,3 +1,9 @@
+$(document).ready(function(){
+    console.log('about to start app');
+    App.start();
+
+});
+
 App = {
     mApp:{},
 

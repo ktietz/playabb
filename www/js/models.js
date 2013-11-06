@@ -35,7 +35,8 @@ App.GenericModel = Backbone.Model.extend({
 App.GenericCollection = Backbone.Collection.extend({
     model: App.GenericModel,
     url: function(){
-        return App.getDynamicModelUrl(window.location.hash.replace("#", ""));
+        var index = window.location.hash.toString();
+        return App.getDynamicModelUrl(index.replace("#", ""));
     }
 });
 
