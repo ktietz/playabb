@@ -93,6 +93,7 @@ body,
 .scroll {
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
+  overflow-x: hidden;
   position: absolute;
   top: 60px;
   bottom: 0px;
@@ -103,9 +104,6 @@ body,
   overflow-y: auto;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
-}
-.overthrow {
-  height: 85%;
 }
 li > a.tappable-active {
   color: #fff;
