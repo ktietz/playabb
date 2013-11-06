@@ -15,13 +15,18 @@ App.HomeView = Backbone.Marionette.CollectionView.extend({
 //    template: '#home-tpl'
     tagName: 'ul',
     className: 'mainMenu',
-    itemView: App.MenuListItemView
+    itemView: App.MenuListItemView,
+    onRender: function() {
+//        $(this.el).attr('data-role', 'listview');
+    }
 });
 
 App.MenuListItemView = Backbone.Marionette.ItemView.extend({
     template:'#menu-li-tpl',
-    tagName: 'li'
+    tagName: 'li',
 //    className: 'clearfix'
+    onRender: function() {
+    }
 });
 
 App.Layout = Backbone.Marionette.Layout.extend({
@@ -42,24 +47,27 @@ App.MainMenuLayout = Backbone.Marionette.Layout.extend({
 });
 
 App.HeaderView = Backbone.Marionette.ItemView.extend({
-    template: '#header-tpl',
-    events: {
-        'click .back' : 'goBack'
-    },
-    goBack: function() {
-        App.router.goBack();
-    }
+    template: '#header-tpl'
+//    events: {
+//        'click .back' : 'goBack'
+//    },
+//    goBack: function() {
+//        App.router.goBack();
+//    }
 });
 
 App.MainMenuHeaderView = Backbone.Marionette.ItemView.extend({
-    template: '#mainMenu-header-tpl',
+    template: '#mainMenu-header-tpl'
 });
 
 // Generic --------------------------------------------------------
 App.GenericListView = Backbone.Marionette.CollectionView.extend({
     itemView : App.GenericListItemView,
     tagName: 'ul',
-    className: 'genericList itemList'
+    className: 'genericList itemList',
+    onRender: function() {
+        $(this.el).attr('data-role', 'listview');
+    }
 });
 
 App.GenericListItemView = Backbone.Marionette.ItemView.extend({
