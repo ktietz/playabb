@@ -124,9 +124,8 @@
             <div class="infoBtn emailBtn"><a href="mailto:<%= email %>" data-role="button">Email</a></div>
             <!--<div class="infoBtn mapBtn"><a href="geo:<%= location %>" data-role="button">See on Map</a></div>-->
             <div class="infoBtn mapBtn"><a href="maps:q=<%= address %>" data-role="button">See on Map</a></div>
-            <!--<div class="infoBtn websiteBtn"><a href="
-            <%= website %>" data-role="button">Visit Site</a></div>-->
-            <div class="infoBtn websiteBtn"><a href="#" onclick="window.open('<%= website %>', '_blank', 'location=yes');">Visit Site</a></div>
+            <div class="infoBtn websiteBtn"><a href="<%= website %>" target="_blank" data-role="button">Visit Site</a></div>
+            <!--<div class="infoBtn websiteBtn"><a href="#" onclick="window.open('<%= website %>', '_blank', 'location=yes');">Visit Site</a></div>-->
         </div>
         <div class="infoPiece description"><p><%= description %></p></div>
         <div id="pictures"></div>
