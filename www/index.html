@@ -37,7 +37,7 @@
 <script id="menu-layout-tpl" type="text/template">
     <!--<section>-->
         <header></header>
-        <div id="masthead"><img src='img/beach.png'></div>
+        <div id="masthead"><img src='img/mainpage/1.png'></div>
         <div id="stuff" class="scrollMainMenu"></div>
     <!--</section>-->
 </script>
@@ -120,10 +120,10 @@
             </div>
         </div>
         <div class="buttons">
-            <div class="infoBtn"><a href="tel:+<%= telephone %>" data-role="button">Call</a></div>
-            <div class="infoBtn"><a href="mailto:<%= email %>" data-role="button">Email</a></div>
-            <div class="infoBtn"><a href="geo:38.897096,-77.036545" data-role="button">See on Map</a></div>
-            <div class="infoBtn"><a href="<%= website %>" data-role="button">Visit Site</a></div>
+            <div class="infoBtn telephoneBtn"><a href="tel:<%= telephone %>" data-role="button">Call</a></div>
+            <div class="infoBtn emailBtn"><a href="mailto:<%= email %>" data-role="button">Email</a></div>
+            <div class="infoBtn mapBtn"><a href="geo:<%= location %>" data-role="button">See on Map</a></div>
+            <div class="infoBtn websiteBtn"><a href="<%= website %>" data-role="button">Visit Site</a></div>
         </div>
         <div class="infoPiece description"><p><%= description %></p></div>
         <div id="pictures"></div>
@@ -133,7 +133,6 @@
 <script id="image-tpl" type="text/template">
     <img src="http://theplayatimes.com/<%= url %>" alt=""/>
 </script>
-
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script type="text/javascript" src="js/libraries/pageslider.js"></script>

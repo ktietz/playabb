@@ -33,6 +33,13 @@ App.MainMenuLayout = Backbone.Marionette.Layout.extend({
         header : 'header',
         image: '#masthead',
         content : '#stuff'
+    },
+    ui: {
+        image: '#masthead img'
+    },
+    onRender: function(){
+        var imageNumber = Math.floor(Math.random()*4);
+        this.ui.image[0].src = 'img/mainpage/' + imageNumber + '.png';
     }
 });
 
@@ -102,14 +109,19 @@ App.GenericInfoView = Backbone.Marionette.ItemView.extend({
         website : '.website',
         address : '.address',
         logo : '.logo',
-        buttons : '.buttons'
+        buttons : '.buttons',
+        telBtn : '.telephoneBtn',
+        emailBtn : '.emailBtn',
+        mapBtn : '.mapBtn',
+        webBtn : '.websiteBtn'
 //        pictures : '.pictures'
     },
     onRender: function(){
         App.HideBlankInformation(this);
-        if (this.model.get('featured') !== true){
-            this.ui.buttons.addClass('hidden');
-        }
+        // Hide the buttons if it's featured
+//        if (this.model.get('featured') !== true){
+//            this.ui.buttons.addClass('hidden');
+//        }
     }
 });
 
@@ -132,15 +144,21 @@ App.ErrorView = Backbone.Marionette.ItemView.extend({
 App.HideBlankInformation = function(view) {
     if (view.model.get('telephone') === ""){
         view.ui.phone.addClass('hidden');
+        view.ui.telBtn.addClass('hidden');
     }
     if (view.model.get('email') === ""){
         view.ui.email.addClass('hidden');
+        view.ui.emailBtn.addClass('hidden');
     }
     if (view.model.get('website') === ""){
         view.ui.website.addClass('hidden');
+        view.ui.webBtn.addClass('hidden');
     }
     if (view.model.get('address') === ""){
         view.ui.address.addClass('hidden');
+    }
+    if (view.model.get('location') === null){
+        view.ui.mapBtn.addClass('hidden');
     }
     if (view.model.get('logo') === ""){
         view.ui.logo.addClass('hidden');
