@@ -111,13 +111,18 @@ App.GenericInfoView = Backbone.Marionette.ItemView.extend({
         logo : '.logo',
         buttons : '.buttons',
         telBtn : '.telephoneBtn',
+        mapBtnLink : '.mapBtn a',
         emailBtn : '.emailBtn',
         mapBtn : '.mapBtn',
         webBtn : '.websiteBtn'
-//        pictures : '.pictures'
     },
     onRender: function(){
         App.HideBlankInformation(this);
+        if (device.platform === 'Android'){
+//            this.ui.mapBtnLink[0].attributes.href = this.model.get('location');
+        } else if (device.platform === 'iOS') {
+//            this.ui.mapBtnLink[0].attributes.href = 'maps:q=' + this.model.get('location');
+        }
 //        $(this.ui.webBtn).attr("onclick", function(){
 //            console.log('Heyman');
 //            navigator.app.loadUrl(this.model.get('website'), { openExternal:true });
