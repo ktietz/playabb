@@ -166,6 +166,7 @@ App.HideBlankInformation = function(view) {
 
 };
 
+
 App.HideBlankListItemInformation = function(view) {
     if (view.model.get('logo') === ""){
         view.ui.logo.addClass('hidden');
