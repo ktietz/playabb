@@ -140,6 +140,7 @@ App.ErrorView = Backbone.Marionette.ItemView.extend({
     className: 'errorMessage'
 });
 
+
 // Functions ------------------------------------------------------------------------------------------
 App.HideBlankInformation = function(view) {
     if (view.model.get('telephone') === ""){
