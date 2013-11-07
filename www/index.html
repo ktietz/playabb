@@ -124,8 +124,8 @@
             <div class="infoBtn emailBtn"><a href="mailto:<%= email %>" data-role="button">Email</a></div>
             <!--<div class="infoBtn mapBtn"><a href="geo:<%= location %>" data-role="button">See on Map</a></div>-->
             <div class="infoBtn mapBtn"><a href="maps:q=<%= location %>" data-role="button">See on Map</a></div>
-            <div class="infoBtn websiteBtn"><a href="<%= website %>" target="_blank" data-role="button">Visit Site</a></div>
-            <!--<div class="infoBtn websiteBtn"><a href="#" onclick="loadUrl(<%= website %>)">Visit Site</a></div>-->
+            <!--<div class="infoBtn websiteBtn"><a href="<%= website %>" target="_blank" data-role="button">Visit Site</a></div>-->
+            <div class="infoBtn websiteBtn"><a href="#" onclick='loadUrl(<%= website %>)'>Visit Site</a></div>
         </div>
         <div class="infoPiece description"><p><%= description %></p></div>
         <div id="pictures"></div>
@@ -177,6 +177,9 @@
         };
 
         var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+    }
+    function loadURL(url){
+        navigator.app.loadUrl(url, { openExternal:true });
     }
 
 </script>
