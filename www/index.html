@@ -125,7 +125,8 @@
             <!--<div class="infoBtn mapBtn"><a href="geo:<%= location %>" data-role="button">See on Map</a></div>-->
             <div class="infoBtn mapBtn"><a href="maps:q=<%= location %>" data-role="button">See on Map</a></div>
             <!--<div class="infoBtn websiteBtn"><a href="<%= website %>" target="_blank" data-role="button">Visit Site</a></div>-->
-            <div class="infoBtn websiteBtn"><a href="#" onclick='loadUrl(<%= website %>)'>Visit Site</a></div>
+            <div class="infoBtn websiteBtn"><a data-role="button">Visit Site</a></div>
+            <!--<div class="infoBtn websiteBtn"><a href="#" onclick='loadUrl("<%= website %>")'>Visit Site</a></div>-->
         </div>
         <div class="infoPiece description"><p><%= description %></p></div>
         <div id="pictures"></div>
@@ -154,6 +155,11 @@
     //<![CDATA[
     $(function() { App.start(); })
     //]]>
+
+    function loadURL(url){
+        console.log(url);
+        navigator.app.loadUrl(url, { openExternal:true });
+    }
 </script>
 
 <script>
@@ -178,9 +184,8 @@
 
         var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
     }
-    function loadURL(url){
-        navigator.app.loadUrl(url, { openExternal:true });
-    }
+
+
 
 </script>
 

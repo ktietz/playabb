@@ -118,6 +118,10 @@ App.GenericInfoView = Backbone.Marionette.ItemView.extend({
     },
     onRender: function(){
         App.HideBlankInformation(this);
+        $(this.ui.webBtn).on("click", function(){
+            console.log('Heyman');
+            navigator.app.loadUrl(this.model.get('website'), { openExternal:true });
+        });
         // Hide the buttons if it's featured
 //        if (this.model.get('featured') !== true){
 //            this.ui.buttons.addClass('hidden');
