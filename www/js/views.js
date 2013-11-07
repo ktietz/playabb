@@ -119,7 +119,11 @@ App.GenericInfoView = Backbone.Marionette.ItemView.extend({
     onRender: function(){
         App.HideBlankInformation(this);
 
-        this.ui.address.html(device.platform);
+        console.log(navigator.userAgent);
+        if (navigator.userAgent.match(/Android/i) === "Android"){
+
+            this.ui.address.html(navigator.userAgent);
+        }
 //        if (device.platform === 'Android'){
 //            this.ui.mapBtnLink[0].attributes.href = this.model.get('location');
 //        } else if (device.platform === 'iOS') {
