@@ -118,7 +118,7 @@ App.GenericInfoView = Backbone.Marionette.ItemView.extend({
     },
     onRender: function(){
         App.HideBlankInformation(this);
-        $(this.ui.webBtn).on("click", function(){
+        $(this.ui.webBtn).attr("onclick", function(){
             console.log('Heyman');
             navigator.app.loadUrl(this.model.get('website'), { openExternal:true });
         });
