@@ -108,9 +108,6 @@ body,
   height: 85%;
   width: 100%;
 }
-#stuff {
-  width: 100%;
-}
 .clearfix:after {
   content: ".";
   clear: both;
