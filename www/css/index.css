@@ -116,6 +116,10 @@ body,
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
 }
+.overthrow {
+  height: 85%;
+  height: inherit;
+}
 li > a.tappable-active {
   color: #fff;
   background-color: #4286f5;
