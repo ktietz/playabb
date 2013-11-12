@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="overthrow-enabled">
+<html class="scrol-enabled">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--<script type="text/javascript" src="js/underscore.js"></script>-->
@@ -20,16 +20,14 @@
 <script id="layout-tpl" type="text/template">
     <!--<section>-->
         <header></header>
-        <div id="stuff" class="overthrow"></div>
-        <!--<div id="stuff" class="scroll"></div>-->
+        <div id="stuff" class="scroll"></div>
     <!--</section>-->
 </script>
 
 <script id="infoLayout-tpl" type="text/template">
     <!--<section>-->
     <header></header>
-    <div id="stuff" class="overthrow">
-    <!--<div id="stuff" class="scroll">-->
+    <div id="stuff" class="scroll">
         <div id="pictures"></div>
     </div>
     <!--</section>-->
@@ -39,8 +37,7 @@
     <!--<section>-->
         <header></header>
         <div id="masthead"><img src='img/mainpage/1.png'></div>
-        <!--<div id="stuff" class="scrollMainMenu"></div>-->
-        <div id="stuff" class="overthrow"></div>
+        <div id="stuff" class="scrollMainMenu"></div>
     <!--</section>-->
 </script>
 
@@ -124,8 +121,8 @@
         <div class="buttons">
             <div class="infoBtn telephoneBtn"><a href="tel:<%= telephone %>" data-role="button">Call</a></div>
             <div class="infoBtn emailBtn"><a href="mailto:<%= email %>" data-role="button">Email</a></div>
-            <div class="infoBtn mapBtn"><a href="geo:<%= location %>" data-role="button">See on Map</a></div>
-            <!--<div class="infoBtn mapBtn"><a href="maps:q=<%= location %>" data-role="button">See on Map</a></div>-->
+            <!--<div class="infoBtn mapBtn"><a href="geo:<%= location %>" data-role="button">See on Map</a></div>-->
+            <div class="infoBtn mapBtn"><a href="maps:q=<%= location %>" data-role="button">See on Map</a></div>
             <!--<div class="infoBtn websiteBtn"><a href="<%= website %>" target="_blank" data-role="button">Visit Site</a></div>-->
             <!--<div class="infoBtn websiteBtn"><a href="#" onclick='loadUrl("<%= website %>")'>Visit Site</a></div>-->
         </div>
@@ -133,7 +130,6 @@
         <div id="pictures"></div>
     </div>
 </script>
-
 
 <script id="image-tpl" type="text/template">
     <img src="http://theplayatimes.com/<%= url %>" alt=""/>
@@ -147,7 +143,7 @@
 <script type="text/javascript" src="js/libraries/underscore-min.js"></script>
 <script type="text/javascript" src="js/libraries/backbone-min.js"></script>
 <script type="text/javascript" src="js/libraries/backbone.marionette.js"></script>
-<script src="js/libraries/overthrow.js"></script>
+<!--<script src="js/libraries/overthrow.js"></script>-->
 <!--<script src="js/libraries/scroll.js"></script>-->
 <script src="./js/app.js"></script>
 <script src="./js/router.js"></script>

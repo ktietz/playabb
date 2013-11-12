@@ -111,14 +111,6 @@ body,
   right: 0px;
   top: 140px;
 }
-.overthrow-enabled .overthrow {
-  overflow-y: scroll;
-  overflow-x: hidden;
-  -webkit-overflow-scrolling: touch;
-}
-.overthrow {
-  height: 85%;
-}
 li > a.tappable-active {
   color: #fff;
   background-color: #4286f5;
@@ -233,7 +225,7 @@ ul li {
   background: -o-linear-gradient(left, rgba(255, 255, 255, 0) 0%, #ffffff 40%);
 }
 .itemList .nonfeatured {
-  max-height: 4em;
+  max-height: 3.5em;
   min-height: 3.2em;
   float: left;
 }
