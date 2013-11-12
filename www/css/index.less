@@ -152,13 +152,16 @@ html, body, #map-canvas {
 
 
 .overthrow-enabled .overthrow {
-//  overflow-y: scroll;
-//  overflow-x: hidden;
-//  -webkit-overflow-scrolling: touch;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 .overthrow{
-//  height: 100% - 15em; // TODO: this isn't the best way to make sure stuff doesn't get cut off. Just the quickest.
+//  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+//  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+//  box-sizing: border-box;
+  height: 100% - 15em; // TODO: this isn't the best way to make sure stuff doesn't get cut off. Just the quickest.
 //  height: inherit;
 }
 
