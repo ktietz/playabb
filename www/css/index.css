@@ -90,27 +90,6 @@ body,
   padding: 0;
   height: 100%;
 }
-.scroll {
-  overflow: scroll;
-  -webkit-overflow-scrolling: touch;
-  overflow-x: hidden;
-  position: absolute;
-  top: 60px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-}
-.scrollMainMenu {
-  overflow: scroll;
-  -webkit-overflow-scrolling: touch;
-  overflow-x: hidden;
-  position: absolute;
-  top: 60px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-  top: 140px;
-}
 .overthrow-enabled .overthrow {
   overflow-y: scroll;
   overflow-x: hidden;
@@ -118,7 +97,7 @@ body,
 }
 .overthrow {
   height: 85%;
-  height: inherit;
+  width: 100%;
 }
 li > a.tappable-active {
   color: #fff;
@@ -149,10 +128,15 @@ header .title {
 }
 header .back {
   float: left;
-  padding: 0.4em 1em 0.2em 0.5em;
 }
 header .back img {
+  padding: 0.4em 1em 0.4em 0.5em;
   height: 1em;
+}
+header .back :active {
+  /* Safari 5.1+, Chrome 10+ */
+
+  background: -webkit-radial-gradient(48% 48%, closest-side, #c3ced1, #006d8e);
 }
 header .themeColor1 {
   color: #c3ced1;

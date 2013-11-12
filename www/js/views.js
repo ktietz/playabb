@@ -35,7 +35,7 @@ App.MainMenuLayout = Backbone.Marionette.Layout.extend({
         content : '#stuff'
     },
     ui: {
-        image: '#masthead img'
+        image: '#masthead img',
     },
     onRender: function(){
         var imageNumber = Math.floor(Math.random()*4);
@@ -102,7 +102,7 @@ App.GenericListItemView = Backbone.Marionette.ItemView.extend({
 
 App.GenericInfoView = Backbone.Marionette.ItemView.extend({
     template: '#generic-page-tpl',
-//    className: 'overthrow',
+    className: 'overthrow',
     ui: {
         phone : '.phone',
         email : '.email',
@@ -115,10 +115,10 @@ App.GenericInfoView = Backbone.Marionette.ItemView.extend({
         emailBtn : '.emailBtn',
         mapBtn : '.mapBtn',
         webBtn : '.websiteBtn'
+
     },
     onRender: function(){
         App.HideBlankInformation(this);
-
 //        console.log(navigator.userAgent);
 //            this.ui.address.html(navigator.userAgent);
 //        if (navigator.userAgent.match(/Android/i) === "Android"){
