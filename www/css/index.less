@@ -133,6 +133,7 @@ html, body, #map-canvas {
 .scroll() {
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
+  overflow-x: hidden;
   position: absolute;
   top: 60px;
   bottom: 0px;
@@ -144,22 +145,28 @@ html, body, #map-canvas {
   .scroll();
 }
 
+.scrollMainMenu{
+  .scroll();
+  top: 140px;
+}
+
+
 .overthrow-enabled .overthrow {
-  overflow-y: auto;
+  overflow-y: scroll;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
 }
 
 .overthrow{
-  height: 100% - 15em; // TODO: this isn't the best way to make sure stuff doesn't get cut off. Just the quickest.
-  //  height: inherit;
-  width: 100%;
+//  height: 100% - 15em; // TODO: this isn't the best way to make sure stuff doesn't get cut off. Just the quickest.
+//  height: inherit;
 }
 
-
-#stuff{
-//  width: 100%;
+li>a.tappable-active {
+  color: #fff;
+  background-color: #4286f5;
 }
+
 
 
 
@@ -217,13 +224,9 @@ header{
 //    left: 20px;
 //    top: 14px;
     float: left;
+    padding: 0.4em 1em 0.2em 0.5em;
     img{
-      padding: 0.4em 1em 0.4em 0.5em;
       height: 1em;
-    }
-    :active{
-      /* Safari 5.1+, Chrome 10+ */
-      background: -webkit-radial-gradient(48% 48%, closest-side, @themeColor1, @themeColor4);
     }
   }
   .themeColor1{
@@ -245,16 +248,16 @@ header{
     width: 100%;
   }
 }
-//
-//#wrapper {
-//  display: block;
-//  position: absolute;
-//  top: 60px;
-//  bottom: 0px;
-//  width: 100%;
-//  overflow: auto;
-//
-//}
+
+#wrapper {
+  display: block;
+  position: absolute;
+  top: 60px;
+  bottom: 0px;
+  width: 100%;
+  overflow: auto;
+
+}
 
 .errorMessage {
   font-size: 1.5em;
@@ -272,9 +275,6 @@ ul {
     margin: 0;
     background-color: #efefef;
     width: 100%;
-    :active{
-//      background-color: @themeColor1; //TODO: Get this to show up properly as the entire item later.
-    }
   }
 }
 
@@ -291,7 +291,6 @@ ul {
       height: 100%;
       padding: inherit;
       padding-right: 100%;
-
     }
     font-size: 1.5em;
   }
@@ -305,6 +304,7 @@ ul {
 
 // Styles for main lists ------------------------------------------------------------------------------------------------
 .itemList {
+
   .featured{
     background-color: #ffffff;
     .forwardArrow {
@@ -413,7 +413,6 @@ ul {
   }
   li {
     position: relative;
-    width: 100%;
 //    height: inherit;
     .forwardArrow {
       position: absolute;
