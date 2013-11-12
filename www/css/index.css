@@ -106,6 +106,7 @@ body,
 }
 .overthrow {
   height: 85%;
+  width: 100%;
 }
 #stuff {
   width: 100%;
@@ -291,6 +292,7 @@ ul li {
 }
 .itemList li {
   position: relative;
+  width: 100%;
 }
 .itemList li .forwardArrow {
   position: absolute;
