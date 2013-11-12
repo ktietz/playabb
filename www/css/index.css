@@ -98,6 +98,9 @@ body,
 .overthrow {
   height: 85%;
 }
+#stuff {
+  width: 100%;
+}
 .clearfix:after {
   content: ".";
   clear: both;
