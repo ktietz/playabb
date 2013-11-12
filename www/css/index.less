@@ -130,39 +130,30 @@ html, body, #map-canvas {
   height: 100%;
 }
 
-//.scroll() {
-//  overflow: scroll;
-//  -webkit-overflow-scrolling: touch;
-//  overflow-x: hidden;
-//  position: absolute;
-//  top: 60px;
-//  bottom: 0px;
-//  left: 0px;
-//  right: 0px;
-//}
-//
-//.scroll{
-//  .scroll();
-//}
-//
-//.scrollMainMenu{
-//  .scroll();
-//  top: 140px;
-//}
+.scroll() {
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+  position: absolute;
+  top: 60px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
+
+.scroll{
+  .scroll();
+}
 
 .overthrow-enabled .overthrow {
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
-//  overflow: auto;
   -webkit-overflow-scrolling: touch;
 }
 
-.overthrow {
+.overthrow{
   height: 100% - 15em; // TODO: this isn't the best way to make sure stuff doesn't get cut off. Just the quickest.
-//  height: inherit;
-//  width: 100%;
+  //  height: inherit;
 }
-
 #stuff{
   width: 100%;
 }
@@ -253,16 +244,16 @@ header{
     width: 100%;
   }
 }
-
-#wrapper {
-  display: block;
-  position: absolute;
-  top: 60px;
-  bottom: 0px;
-  width: 100%;
-  overflow: auto;
-
-}
+//
+//#wrapper {
+//  display: block;
+//  position: absolute;
+//  top: 60px;
+//  bottom: 0px;
+//  width: 100%;
+//  overflow: auto;
+//
+//}
 
 .errorMessage {
   font-size: 1.5em;
@@ -313,7 +304,6 @@ ul {
 
 // Styles for main lists ------------------------------------------------------------------------------------------------
 .itemList {
-
   .featured{
     background-color: #ffffff;
     .forwardArrow {

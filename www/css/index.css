@@ -90,8 +90,17 @@ body,
   padding: 0;
   height: 100%;
 }
+.scroll {
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+  position: absolute;
+  top: 60px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
 .overthrow-enabled .overthrow {
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
 }
@@ -151,14 +160,6 @@ header .themeColor3 {
 }
 #masthead img {
   width: 100%;
-}
-#wrapper {
-  display: block;
-  position: absolute;
-  top: 60px;
-  bottom: 0px;
-  width: 100%;
-  overflow: auto;
 }
 .errorMessage {
   font-size: 1.5em;
