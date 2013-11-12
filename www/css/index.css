@@ -99,10 +99,6 @@ body,
   height: 85%;
   width: 100%;
 }
-li > a.tappable-active {
-  color: #fff;
-  background-color: #4286f5;
-}
 .clearfix:after {
   content: ".";
   clear: both;
