@@ -93,20 +93,27 @@ body,
 .scroll {
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
+  overflow-x: hidden;
   position: absolute;
   top: 60px;
   bottom: 0px;
   left: 0px;
   right: 0px;
 }
-.overthrow-enabled .overthrow {
-  overflow-y: auto;
-  overflow-x: hidden;
+.scrollMainMenu {
+  overflow: scroll;
   -webkit-overflow-scrolling: touch;
+  overflow-x: hidden;
+  position: absolute;
+  top: 60px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  top: 140px;
 }
-.overthrow {
-  height: 85%;
-  width: 100%;
+li > a.tappable-active {
+  color: #fff;
+  background-color: #4286f5;
 }
 .clearfix:after {
   content: ".";
@@ -133,15 +140,10 @@ header .title {
 }
 header .back {
   float: left;
+  padding: 0.4em 1em 0.2em 0.5em;
 }
 header .back img {
-  padding: 0.4em 1em 0.4em 0.5em;
   height: 1em;
-}
-header .back :active {
-  /* Safari 5.1+, Chrome 10+ */
-
-  background: -webkit-radial-gradient(48% 48%, closest-side, #c3ced1, #006d8e);
 }
 header .themeColor1 {
   color: #c3ced1;
@@ -158,6 +160,14 @@ header .themeColor3 {
 }
 #masthead img {
   width: 100%;
+}
+#wrapper {
+  display: block;
+  position: absolute;
+  top: 60px;
+  bottom: 0px;
+  width: 100%;
+  overflow: auto;
 }
 .errorMessage {
   font-size: 1.5em;
@@ -289,7 +299,6 @@ ul li {
 }
 .itemList li {
   position: relative;
-  width: 100%;
 }
 .itemList li .forwardArrow {
   position: absolute;
