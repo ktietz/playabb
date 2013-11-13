@@ -86,6 +86,3 @@ function getDataAsJSON() {
     $json = file_get_contents('http://theplayatimes.com/welcome/api/v1/listings/restaurant/true.json');
     return $json;
 }
-
-
-?>
