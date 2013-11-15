@@ -12,7 +12,9 @@
         Playa del carmen's community paper. The official app.
     </description>
 
-    <author href="http://theplayatimes.com" email="karl@karltietz.com">
+    <!--It has to be com.phonegap.playa to work in the google play store.-->
+    <author href="http://com.phonegap.playa" email="karl@karltietz.com">
+    <!--<author href="http://theplayatimes.com" email="karl@karltietz.com">-->
         Project Manager Joel Carrier.
     </author>
 
