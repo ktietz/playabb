@@ -52,6 +52,7 @@
         A list of available plugins are available at https://build.phonegap.com/docs/plugins
     -->
 
+
     <!-- Define app icon for each platform. -->
     <icon src="PlayaTimesIcon.png" width="363" height="363"/>
     <icon src="res/icon/android/icon-36-ldpi.png"   gap:platform="android"    gap:density="ldpi" />
