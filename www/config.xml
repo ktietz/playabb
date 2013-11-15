@@ -3,8 +3,9 @@
 <!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "com.joelcarrier.meridianmedia.theplayatimes"
+        id        = "com.phonegap.playa"
         version   = "1.1.0">
+        <!--id        = "com.joelcarrier.meridianmedia.theplayatimes"-->
 
     <name>The Playa Times</name>
 
@@ -12,9 +13,7 @@
         Playa del carmen's community paper. The official app.
     </description>
 
-    <!--It has to be com.phonegap.playa to work in the google play store.-->
-    <author href="http://com.phonegap.playa" email="karl@karltietz.com">
-    <!--<author href="http://theplayatimes.com" email="karl@karltietz.com">-->
+    <author href="http://theplayatimes.com" email="karl@karltietz.com">
         Project Manager Joel Carrier.
     </author>
 
